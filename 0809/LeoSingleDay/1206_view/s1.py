@@ -3,6 +3,12 @@ sys.stdin = open('input.txt')
 
 for tc in range(1, 11):
     L = int(input())
-    buildings = list(map(int, input().split()))
+    bu = list(map(int, input().split()))
+    #결과값을 저장해줄 result 변수 선언
+    result = 0
     for fl in range(2,L-2):
-        pass
+        #max값을 통해 대소비교를 하기위해 앞뒤 두칸의 빌딩 높이를 저장할 asideBu_list를 선언
+        asideBu_list = [bu[fl-1],bu[fl-2],bu[fl+1],bu[fl+2]]
+        if( bu[fl] > max(asideBu_list)):
+            result += bu[fl]-max(asideBu_list)
+    print('#{} : {}'.format(tc,result))

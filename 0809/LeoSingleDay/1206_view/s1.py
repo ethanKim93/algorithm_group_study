@@ -19,4 +19,4 @@ for tc in range(1, 11):
         # 방법2 (max 내장함수 사용)
         # if( bu[fl] > max(asideBu_list)):
         #     result += bu[fl]-max(asideBu_list)
-    print('#{} : {}'.format(tc,result))
+    print('#{} {}'.format(tc,result))

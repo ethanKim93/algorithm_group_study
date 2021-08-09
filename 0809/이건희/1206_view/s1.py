@@ -34,4 +34,4 @@ for tc in range(10):
         if check(i):
             ans += find_min(i)
 
-    print(ans)
+    print("#{} {}".format(tc+1,ans))

@@ -1,15 +1,15 @@
 import sys
-
 sys.stdin = open('sample_input.txt')
 
 T = int(input())
 for tc in range(1, T + 1):
+
     # 정수의 개수를 nums, 구간의 길이를 boundary라고 정의하고 입력값을 처리하고
     # 주어진 정수를 num_lists에 저장한다.
     nums, boundary = map(int, input().split())
     num_lists = list(map(int, input().split()))
 
-    # 최솟값을 찾기 위하여 num_cnt = 100, number = 1000
+    # 최솟값의 경우 정수의 최대 개수 = 100, 정수 최댓값 = 10000 이므로 10000 * 100
     max_sum = 0
     min_sum = 1000000
 

@@ -22,11 +22,13 @@ for tc in range(1,T+1):
         Bus_charger[idx]+=1
 
     Station_idx=0
+
     for i in range(station_idx,N,K):
 
         if Bus_Station[i]==1 & Bus_charger[i]==1:
             charger_count+=1
             station_idx=i
+
 
         elif Bus_Station[i]==1 & Bus_charger[i]==0:
             for j in range(i,0,-1):

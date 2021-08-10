@@ -6,9 +6,6 @@ for tc in range(1, T+1):
     N, M = map(int, input().split())
     nums = list(map(int, input().split()))
 
-    max_sum = 0
-    min_sum = 0
-
     for i in range(N-M+1):
         s = 0
         for j in range(M):
@@ -20,7 +17,5 @@ for tc in range(1, T+1):
             max_sum = s
         elif min_sum > s:
             min_sum = s
-        else:
-            pass
 
     print('#{} {}'.format(tc, max_sum-min_sum))

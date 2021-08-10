@@ -3,7 +3,7 @@ import sys
 sys.stdin = open('input.txt')
 
 T = int(input())
-max_height = 100
+max_height = 101
 
 #O(N^2) 풀이 방법
 for tc in range(1, T+1) :

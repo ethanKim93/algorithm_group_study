@@ -11,6 +11,7 @@ for case in range(1, T+1):
         card_cnt[int(ai[j])] += 1
 
     max_num = -1
+    result = 0
     for k in range(10):
         if card_cnt[k] >= max_num:
             result = k

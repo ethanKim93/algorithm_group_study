@@ -6,6 +6,7 @@ for tc in range(1,T+1):
     N=int(input())
     Numbers=[0]*5
     result=''
+    
     while True:
         if N==1:
             break

@@ -21,14 +21,14 @@ for tc in range(1,T+1):
     for k in range(len(arr)-1):
         if(arr[k]>arr[k+1]):
             for m in range(arr[k],arr[k+1],-1):
-              cac = 0
-              cac=m-arr[k+1]
-              cac=arr[k+1]+cac
-              diff.append(cac)
+                cac = 0
+                cac=m-arr[k+1]
+                cac=arr[k+1]+cac
+                diff.append(cac)
         else: continue
-
+    print(diff)
     for q in diff:
-        if temp==0 or q>temp:
+        if q>temp:
             temp=q
 
 

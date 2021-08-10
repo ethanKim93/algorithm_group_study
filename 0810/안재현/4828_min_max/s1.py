@@ -14,4 +14,3 @@ for a in range(0, A):
     calc = B_list[inp - 1] - B_list[0]
 
     print('#{} {}'.format(a+1, calc))
-

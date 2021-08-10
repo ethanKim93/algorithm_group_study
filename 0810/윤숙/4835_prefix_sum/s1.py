@@ -1,3 +1,8 @@
+"""
+코드가 비효율적임.. 맨앞과 맨뒤를 빼는 식으로 구간의 합을 구한다.
+
+"""
+
 import sys
 sys.stdin=open('input.txt')
 

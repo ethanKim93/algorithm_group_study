@@ -1,7 +1,7 @@
-
+import sys
+sys.stdin=open('input.txt')
 
 T=int(input())
-
 
 for tc in range(1,T+1):
     count = [0] * 10
@@ -24,5 +24,5 @@ for tc in range(1,T+1):
             arr_max=n
 
 
-    print('#{} {}'.format(arr_max, count[arr_max]))
+    print('#{} {} {}'.format(tc, arr_max, count[arr_max]))
 

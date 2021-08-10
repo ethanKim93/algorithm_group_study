@@ -21,23 +21,29 @@ for tc in range(1,T+1):
     for idx in M_n:
         Bus_charger[idx]+=1
 
-    Station_idx=0
+    Station_now=0
+    count=0
 
-    for i in range(station_idx,N,K):
+    while True:
+
+        Station_now+=K
+
+        if station_now>=N:
+            break
 
         if Bus_Station[i]==1 & Bus_charger[i]==1:
             charger_count+=1
-            station_idx=i
 
 
-        elif Bus_Station[i]==1 & Bus_charger[i]==0:
-            for j in range(i,0,-1):
-                if Bus_charger[j] == 1:
+        else:
+            for j in range(K,1,-1):
+                # print(j)
+                if Bus_charger[i-j] == 1:
                     charger_count += 1
+                    station_idx = i-j
                     break
-                else
 
-        elif Bus_Station[i]==0 & Bus_charger[i]==1
+
 
 
 

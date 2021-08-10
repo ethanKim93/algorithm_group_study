@@ -8,16 +8,13 @@ for tc in range(1, T+1):
     stops = list(map(int, input().split()))
     now = 0
     result = 0
-    first = 1
-    for stop in stops:
-        if stop <= now + K:
-            first = 0
-            park = stop
-        elif first:
+
+    while not N <= now + K:
+        sub = [stop for stop in stops if now < stop <= now + K]
+        try:
+            now = sub[-1]
+            result += 1
+        except:
             result = 0
             break
-        else:
-            now = park
-            result += 1
-            first = 1
-    print(result)
+    print('#{} {}'.format(tc, result))

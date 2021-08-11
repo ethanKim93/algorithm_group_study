@@ -16,4 +16,4 @@ for tc in range(1, T+1):
                 ni, nj = i + di[k], j + dj[k]
                 if ni in range(N) and nj in range(N):
                     result += abs(arr[i][j] - arr[ni][nj])
-    print(result)
+    print('#{} {}'.format(tc, result))

@@ -24,6 +24,6 @@ for tc in range(1, 11):
             box_list = bubbleSort(box_list)
             dump_cnt += 1
             dump_status = box_list[-1] - box_list[0]
-            
+
     print('#{} {}'.format(tc, dump_status))
 

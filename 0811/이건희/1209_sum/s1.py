@@ -34,7 +34,7 @@ for tc in range(10):
     if ans < right_sum:
         ans = right_sum
 
-    elif ans < left_sum:
+    if ans < left_sum:
         ans = left_sum
 
 

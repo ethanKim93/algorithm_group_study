@@ -23,8 +23,15 @@ for tc in range(1, T+1):
 
         snail[x][y] = i
 
-        if 0 <= x + dx[mode] < N
+        if 0 <= x + dx[mode] < N and 0 <= y + dy[mode] < N and not snail[x + dx[mode]][y + dy[mode]]:
+            continue
 
+        if mode != 3:
+            mode += 1
 
+        else:
+            mode = 0
 
-
+    print('#{}'.format(tc))
+    for j in snail:
+        print(*j)

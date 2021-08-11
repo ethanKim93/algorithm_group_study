@@ -14,7 +14,9 @@ for test_case in range(T):
         club_sum = 0
         for k in club:
             club_sum += k
-        if club_sum == 0:
+        if club_sum == 0 and len(club):
             result = 1
+            break
+    print('#{}'.format(test_case+1),end=' ')
     print(result)
 

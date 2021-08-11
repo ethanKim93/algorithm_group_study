@@ -2,7 +2,7 @@ import sys
 sys.stdin = open('input.txt')
 
 T = int(input())
-for tc in range(T):
+for tc in range(1, T+1):
     N = int(input())
     snail = [[0]*N for _ in range(N)]
 
@@ -32,4 +32,3 @@ for tc in range(T):
     print('#{}'.format(tc))
     for j in snail:
         print(*j)
-    print()

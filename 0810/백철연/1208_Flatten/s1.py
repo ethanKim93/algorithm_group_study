@@ -12,16 +12,16 @@ for test_case in range(1, 11):
                 max_box = box     # max 박스에 할당
             if box < min_box:    # min도
                 min_box = box
-        boxes[boxes.index(max_box)] -= 1 # 최고 높은 박스의 인덱스 찾음
-        boxes[boxes.index(min_box)] += 1 # 최고 낮은 박스의 인덱스 찾음
+        boxes[boxes.index(max_box)] -= 1 # 최고 높은 박스의 인덱스 찾아서 1씩 감소
+        boxes[boxes.index(min_box)] += 1 # 최고 낮은 박스의 인덱스 찾아서 1씩 증가
     if max_box not in boxes:
-        max_box -= 1                  # 최고 높은 박스를 하나 내림
+        max_box -= 1                  # 
     if min_box not in boxes:
-        min_box += 1                # 최고 낮은 박스를 하나 올림
+        min_box += 1                #
 
     print('#{} {}'.format(test_case,max_box-min_box))
 
-# 
+#
 
 
 

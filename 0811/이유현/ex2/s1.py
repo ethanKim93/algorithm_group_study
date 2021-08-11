@@ -9,7 +9,7 @@ for tc in range(1, T+1):
 
     for i in range(1 << n):
         p = []
-        for j in range(n+1):
+        for j in range(n):
             if i & (1<<j):
                 p += [arr[j]]
         total.append(p)

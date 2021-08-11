@@ -4,56 +4,26 @@ from pprint import pprint
 
 T = int(input())
 
-idxX = [0, 1, 0, -1]
-idxY = [1, 0, -1, 0]
-
 for tc in range(1, T+1):
     N = int(input())
+
     li = [list(map(int, input().split())) for _ in range(N)]
-    newone = [[0 for _ in range(5)] for __ in range(5)]
 
-    for i in range(len(li)):
-        for j in range(len(li[0])):
+    total = 0
 
-
-    # pprint(li)
-    #
-    # for i in range(len(li)):
-    #     for j in range(len(li[0])):
-    #         if i == 0:
-    #             if j == 0:
-    #                 li[i][j] = abs(li[i+1][j] - li[i][j]) + abs(li[i][j+1] - li[i][j])
-    #                 break
-    #             elif j == 4:
-    #                 li[i][j] = abs(li[i+1][j] - li[i][j]) + abs(li[i][j-1] - li[i][j])
-    #                 break
-    #             else:
-    #                 li[i][j] = abs(li[i + 1][j] - li[i][j]) + abs(li[i][j - 1] - li[i][j]) + abs(li[i][j + 1] - li[i][j])
-    #                 break
-    #         elif i == 4:
-    #             if j == 0:
-    #                 li[i][j] = abs(li[i - 1][j] - li[i][j]) + abs(li[i][j + 1] - li[i][j])
-    #                 break
-    #             elif j == 4:
-    #                 li[i][j] = abs(li[i - 1][j] - li[i][j]) + abs(li[i][j - 1] - li[i][j])
-    #                 break
-    #             else:
-    #                 li[i][j] = abs(li[i - 1][j] - li[i][j]) + abs(li[i][j - 1] - li[i][j]) + abs(li[i][j + 1] - li[i][j])
-    #                 break
-    #         elif j == 0:
-    #             if i == 1 or i == 2 or i == 3:
-    #                 li[i][j] = abs(li[i - 1][j] - li[i][j]) + abs(li[i][j + 1] - li[i][j]) + abs(li[i][i + 1] - li[i][j])
-    #                 break
-    #         elif j == 4:
-    #             if i == 1 or i == 2 or i == 3:
-    #                 li[i][j] = abs(li[i - 1][j] - li[i][j]) + abs(li[i][j - 1] - li[i][j]) + abs(li[i][i + 1] - li[i][j])
-    #                 break
-    #         else:
-    #             li[i][j] = abs(li[i - 1][j] - li[i][j]) + abs(li[i][j - 1] - li[i][j]) + abs(li[i + 1][j] - li[i][j]) + abs(li[i][j + 1] - li[i][j])
-    #
-    # pprint(li)
-    # total = 0
-    # for x in range(len(li)):
-    #     for y in range(len(li[0])):
-    #         total += li[x][y]
-    # print(total)
+    dx = [0, 1, 0, -1] # 우, 좌
+    dy = [1, 0, -1, 0] # 상, 하
+    for i in range(N):      #배열 수 만큼 x축 순회
+        for j in range(N):  #배열 수 만큼 y축 순회
+            sum_abs = 0
+            for k in range(len(dx)):        # 델타 상하좌우 이동 가능한 좌표만큼 range 설정
+                newi = i + dx[k]
+                newj = j + dy[k]
+                if 0 <= newi < N and 0 <= newj < N:     #새로 설정한 좌표가 음수라면 실행하지 않고 다시 반복문으로
+                    value_abs = li[newi][newj] - li[i][j]   #새로 설정한 좌표가 양수라면 실행
+                    if value_abs >= 0:
+                        sum_abs += value_abs
+                    else:
+                        sum_abs -= value_abs
+            total += sum_abs
+    print('#{} {}'.format(tc, total))

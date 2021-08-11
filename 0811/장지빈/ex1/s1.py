@@ -7,7 +7,7 @@ T = int(input())
 for tc in range(1, T+1):
     N = int(input())
 
-    li = [list(map(int, input().split())) for _ in range(N)]
+    li = [0 for ]
 
     total = 0
 

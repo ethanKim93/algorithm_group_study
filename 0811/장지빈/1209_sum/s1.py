@@ -8,7 +8,7 @@ for tc in range(10):
 
     arr = [list(map(int, input().split())) for _ in range(100)]
     L = len(arr)
-    L2 = len(arr)
+    L2 = len(arr[0])
     for i in range(L):
 
         sum_arr = 0

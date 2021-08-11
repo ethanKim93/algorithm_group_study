@@ -218,28 +218,28 @@
 ```
 algorithm/
 	0810/ 
-		justin/ 개인 문제 풀이 폴더
-			9999_my_problem_1/
+		김싸피/
+			9999_문제명/
 				s1.py
 				input.txt
 			...
-		bruno/ 개인 문제 풀이 폴더
+		박싸피/
 			...
-		kevin/ 개인 문제 풀이 폴더
+		이싸피/
 			...
 		README.md 문제 set 정보 업로드
 	0811/
-		justin/
-			9998_my_problem_2/
+		김싸피/
+			9998_문제명/
 				s1.py
 				input.txt
-			9997_my_problem_3/
+			9997_문제명/
 				s1.py
 				input.txt
 			...
-		bruno/ 개인 문제 풀이 폴더
+		박싸피/
 			...
-		kevin/ 개인 문제 풀이 폴더
+		이싸피/
 			...
 		README.md 문제 set 정보 업로드
 	...

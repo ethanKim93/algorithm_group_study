@@ -32,9 +32,9 @@ for tc in range(1, 11):
                 total += lis2
             else:
                 total += lis1
-        #각 view를 비교해서 작은 값을 할당
+        #각 비교(차이)값 중 더 작은 수를 더함
 
-        #print(total)
+
     print('#{} {}'.format(tc, total))
 
 

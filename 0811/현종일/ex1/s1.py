@@ -20,7 +20,7 @@ for tc in range(1,T+1):
                 pointY = y + dy[mode]
                 if 0 <= pointX < n and 0 <= pointY < n:
                     result += abs(arr[pointX][pointY] - arr[x][y])
-    print(result)
+    print('#{} {}'.format(tc,result))
 
 
 

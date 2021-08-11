@@ -8,12 +8,11 @@ for tc in range(1,T+1):
 
     n = len(n_list) # 원소의 개수
     flag = False
-    result = 0
-    for i in range(1<<n):
-        for j in range(n+1):
-            if i & (1<<j):
+    for i in range(1,1<<n):
+        result = 0
+        for j in range(n):
+            if i&(1<<j):
                 result += n_list[j]
-
         if result == 0:
             flag = True
     if flag:

@@ -8,8 +8,8 @@ for tc in range(1, A + 1):
     for _ in range(5):
         arr.append(list(map(int, input().split())))
 
-    dx = [0, 1, 0, -1]
-    dy = [-1, 0, 1, 0]
+    dx = [-1, 1, 0, 0]  # 상 하 좌 우
+    dy = [0, 0, -1, 1]
     result = 0
 
     for i in range(N):

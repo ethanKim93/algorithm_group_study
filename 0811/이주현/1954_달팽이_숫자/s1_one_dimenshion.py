@@ -14,8 +14,11 @@ for test_case in range(1, T + 1):
     loop_count = N
 
     while (0 in arr):
+        #처음 맨 위를 채운 후
         if count > N:
+            #이동 횟수 감소
             loop_count -= 1
+            #행 이동
             for i in range(loop_count):
                 if row_plus:
                     arr[n + N] = count
@@ -24,8 +27,10 @@ for test_case in range(1, T + 1):
                     arr[n - N] = count
                     n -= N
                 count += 1
+            #행 이동 변화
             row_plus = not row_plus
 
+            #열 이동
             for j in range(loop_count):
                 if col_plus:
                     arr[n + 1] = count
@@ -34,8 +39,9 @@ for test_case in range(1, T + 1):
                     arr[n - 1] = count
                     n -= 1
                 count += 1
+            #열 이동 변화
             col_plus = not col_plus
-
+        #처음 맨 위 채우기 전
         else:
             arr[n] = count
             count += 1

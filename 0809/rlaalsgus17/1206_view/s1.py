@@ -12,8 +12,10 @@ for tc in range(1,11):
         #양옆 2개의 층수 차이 확인
         dif_floor = []
         for i in range(-2,3):
+            if i == 0:
+                continue
             dif_floor.append(buildings[b_idx] - buildings[b_idx+i])
-        dif_floor.pop(2)
+
         #가장 낮은 층수와 높은 층수 확인
         min_floor = dif_floor[0]
         for j in dif_floor:

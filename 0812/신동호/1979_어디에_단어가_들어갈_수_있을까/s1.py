@@ -1,17 +1,35 @@
 import sys
 sys.stdin = open('input.txt')
-
+#포브스 선정 비트 연산자 이용한 풀이
 T = int(input())
-T=1
+# 복잡한 풀이라서 예시로 원리를 들자면, N=5 K=3인 경우를 생각해주자. 이때 올바른 자리가 되기 위해서는 111이 들어가야 하고,
+# 양 옆에는 0이 있는 01110의 형태여야 한다. 00111인 경우도 포함되니 벽을 생각하지 않기 위해 0으로 패딩해주는 과정이 필요하다. -(1)
+# 이진수로 변환한 행렬에서 01110과 숫자가 완전히 일치하는 부분이 필요하므로 계산을 xor 연산자 ^로 해준다.
+# 완전히 모양이 일치한다면 xor 값은 0이 된다.
+# 이제 01110 비트를 왼쪽으로 옮겨주며(2 거듭제곱) 생각해보자. ex. 01110, 011100, 0111000의 3가지가 존재한다. -(2)
+# 하지만 유의할 점은, 0111000 기준으로 xor 사용시 0111010는 조건을 만족하지만 xor 연산은 2가 나온다.
+# 마찬가지로 01110 기준으로 xor 사용시 0101110은 조건을 만족하지만 xor 연산은 32가 나온다.
+# 때문에 '01110'을 제외한 나머지 부분에서 모양이 다른 경우를 고려해주기 위해 %를 사용한다.
+# xx01110의 경우 %32로 나머지가 0이하, x01110x의 경우 %64로 나머지가 1이하, 01110xx의 경우 %128로 나머지가 3이하인 조건을 추가해주면 된다. -(3)
+
 for tc in range(1, T+1):
-    cnt_r = cnt_c = 0
+    cnt_r = cnt_c = 0 # 가로에서 조건 만족, 세로에서 조건 만족
     N, K = list(map(int, input().split()))
-    # print(['0'*(N+2)]+["".join(input().split())+'0' for _ in range(N)])
-    boxes = ['0'*(N+2)] +["".join(input().split())+'0' for _ in range(N)] + ['0'*(N+2)]
-    print(boxes)
-    for box in boxes:
-        for i in range(len(boxes)-5):
-            if (14<<i & int(box,2))%7 and (14<<i & int(box,2)):
+
+    boxes = ['0'*(N+2)] +['0'+"".join(input().split())+'0' for _ in range(N)] + ['0'*(N+2)] # 주변을 0으로 패딩해준다 (1) 참고
+
+    for box in boxes: # 가로에서 조건 만족하는 자리 찾기
+        for i in range(len(boxes)-(K+2)+1): # 0으로 패딩한 전체 길이에서 0으로 패딩한 111 (01110)을 움직일 수 있는 거리
+            if (((2**K-1)*2)<<i ^ int(box,2))%(1<<((K+2)+i)) < 1<<i: # (2)와 (3) 참고
                 cnt_r += 1
-    print(cnt_r)
-    # for ind in range(boxes)
+
+    for col in range(len(boxes)): # 세로에서 조건 만족하는 자리 찾기
+        col_bit = '' # 세로로 세어줄 이진수
+        for row in range(len(boxes)):
+            col_bit += boxes[row][col] # 이진수 세로로 넣어주기
+
+        for i in range(len(boxes)-(K+2)+1):
+            if (((2**K-1)*2)<<i ^ int(col_bit,2))%(1<<((K+2)+i)) < 1<<i:
+                cnt_c += 1
+
+    print('#{} {}'.format(tc, cnt_r + cnt_c)) # 가로와 세로에서 조건을 만족하는 위치의 수

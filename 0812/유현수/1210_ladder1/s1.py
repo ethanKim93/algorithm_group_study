@@ -35,4 +35,4 @@ for _ in range(10):
             else:
                 r -= 1
 
-    print('#{} {}'.format(tc, c))
+    print('#{} {}'.format(T, c))

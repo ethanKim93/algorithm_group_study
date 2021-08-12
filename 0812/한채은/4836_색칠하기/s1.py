@@ -1,33 +1,30 @@
 import sys
-sys.stdin = open('sample_input.txt')
+sys.stdin = open("sample_input.txt")
 
 T = int(input())
-for tc in range(1, T+1):
-    arr = [[0] * 10 for _ in range(10)]
 
+for tc in range(1, T+1):
+    blank = [[0] * 10 for _ in range(10)]	# 빈 흰종이
     N = int(input())
 
-    total = 0   # 겹치는 칸 세주기
+    cnt = 0  # 겹치는 칸 세주기
 
-    for i in range(1, N+1):
+    for k in range(N):
         x1, y1, x2, y2, color = map(int, input().split())
 
-        for x in range(x1, x2+1):   # 처음부터 끝까지
+        for x in range(x1, x2+1):
             for y in range(y1, y2+1):
-                if color == 1:  # 빨간색이면
-                    if arr[x][y] == 0:
-                        arr[x][y] = 1  # 색칠하기
+                if color == 1:  # 컬러가 빨간색이고
+                    if blank[x][y] == 0:	# 빈칸이 0이면
+                        blank[x][y] = 1		# 빈칸에 1 칠해
+                    elif blank[x][y] == 2:	# 빨간색 칠하다가 파란색 나오면
+                        blank[x][y] = 3		# 빈칸에 3 칠하고 (보라색)
+                        cnt += 1			# 하나 세
 
-                    elif arr[x][y] == 2:    # 파란색이면
-                        arr[x][y] = 3   # 보라색으로 칠하기
-                        total += 1  # 겹치는 칸 수 셈
-
-                else:   # 파란색이면
-                    if arr[x][y] == 0:
-                        arr[x][y] = 2   # 파란색으로 칠하기
-
-                    elif arr[x][y] == 1:    # 빨간색이면
-                        arr[x][y] = 3       # 보라색으로 칠하기
-                        total += 1  # 겹치는 칸 수 세어주기
-
-    print('#{} {}'.format(tc, total))
+                elif color == 2:  # 컬러가 파란색이고
+                    if blank[x][y] == 0:	# 빈칸이 0이면
+                        blank[x][y] = 2		# 빈칸에 2 칠해
+                    elif blank[x][y] == 1:	# 파란색 칠하다가 빨간색 나오면
+                        blank[x][y] = 3		# 빈칸에 3칠하고 (보라색)
+                        cnt += 1			# 하나 세
+    print('#{} {}'.format(tc, cnt))

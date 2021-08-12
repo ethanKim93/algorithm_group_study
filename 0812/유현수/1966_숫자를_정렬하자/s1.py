@@ -6,23 +6,13 @@ for tc in range(1, T+1):
     N = int(input())
     arr = list(map(int, input().split()))
 
-    max_n = 0
-    for n in arr:
-        if max_n < n:
-            max_n = n
-
-    counts = [0] * (max_n + 1)
-
-    for i in range(N):
-        counts[arr[i]] += 1
-
-    for i in range(max_n):
-        counts[i+1] += counts[i]
-
-    result = [0] * N
-    for i in range(N):
-        result[counts[arr[i]]-1] = arr[i]
-        counts[arr[i]] -= 1
+    for i in range(N-1):
+        min_idx = i
+        for j in range(i+1, N):
+            if arr[min_idx] > arr[j]:
+                min_idx = j
+        if arr[i] > arr[min_idx]:
+            arr[i], arr[min_idx] = arr[min_idx], arr[i]
 
     print('#{} '.format(tc), end='')
-    print(*result, sep=' ')
+    print(*arr, sep=' ')

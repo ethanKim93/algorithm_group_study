@@ -23,7 +23,6 @@ T = int(input())
 for tc in range(1, T + 1):
     P, A, B = map(int, input().split())
 
-    # print(search_cnt(A), search_cnt(B))
     result = '0'
     if search_cnt(1, P, A, 0) > search_cnt(1, P, B, 0):
         result = 'B'

@@ -24,8 +24,11 @@ for tc in range(1, T+1):
     while n > 0:
         new.append(ai.pop(-1))
         new.append(ai.pop(0))
-        n-=2
         if len(new) == 10:
             break
 
     print('#{} {}'.format(tc, " ".join(map(str,new))))
+
+    # 1 10 1 9 2 8 3 7 4 6 5
+    # 2 89 8 85 11 67 16 60 28 49 39
+    # 3 98 3 97 9 88 17 75 18 71 21

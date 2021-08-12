@@ -24,7 +24,8 @@ for tc in range(1, 11):
         else:
             i += 1
     # for i in range(2, L - 2):
-    #     if buildings[i - 1] < buildings[i] and buildings[i - 2] < buildings[i] and buildings[i + 1] < buildings[i] and buildings[i + 2] < buildings[i] :
+    #     if buildings[i - 1] < buildings[i] and buildings[i - 2] < buildings[i] and buildings[i + 1] < buildings[i] and
+    #     \buildings[i + 2] < buildings[i] :
     #         list_gap = []
     #         list_gap.append(buildings[i] - buildings[i - 2])
     #         list_gap.append(buildings[i] - buildings[i - 1])

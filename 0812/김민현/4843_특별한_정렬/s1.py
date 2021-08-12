@@ -17,7 +17,7 @@ for tc in range(1,T+1):
                 ai[i],ai[j] = ai[j],ai[i] # i위치와 가장 높은값 자리 바꿈
             if min_ai > ai[j]:# 기존보다 낮은 값 찾기
                 min_ai = ai[j] 
-                ai[i+1],ai[j] = ai[j],ai[i+1] # i+1과 가장 높은 값 찾기
+                ai[i+1],ai[j] = ai[j],ai[i+1] # i+1과 가장 낮은 값 찾기
     
     
     print('#{0}'.format(tc),end=' ')

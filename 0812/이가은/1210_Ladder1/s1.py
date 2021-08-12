@@ -1,18 +1,45 @@
 import sys
 sys.stdin = open('input.txt')
 
-test_case = int(input())
+test_case = 10
 for test in range(test_case):
 
-    x = [-1, 0, 1]
-    y = [0, -1, 0]    # 좌-상-우
-
+    num = int(input())
     ladder_arr = []
     for _ in range(100):
         ladder_arr.append(list(map(int, input().split())))
 
     pt_dy = 98
-    pt_dx = ladder_arr[99].index(2)  # type: int
+    pt_dx = ladder_arr[99].index(2)
+
+    dir = 'U'
+
+    while pt_dy >0:
+        if dir == 'U':
+            if pt_dx > 0 and ladder_arr[pt_dy][pt_dx-1] == 1 : #왼
+                pt_dx -=1
+                dir = 'L'
+            elif pt_dx < 99 and ladder_arr[pt_dy][pt_dx+1] ==1:
+                pt_dx +=1
+                dir = 'R'
+            else:
+                pt_dy -= 1
+        elif dir == 'L':
+            if ladder_arr[pt_dy-1][pt_dx] == 1:
+                pt_dy -= 1
+                dir = 'U'
+            else:
+                pt_dx -=1
+        elif dir == 'R':
+            if ladder_arr[pt_dy-1][pt_dx] == 1:
+                pt_dy -= 1
+                dir = 'U'
+            else:
+                pt_dx += 1
+
+    print('#{} {}'.format(num,pt_dx))
+
+
 
 
     # # 위로 갈 때 좌우 탐색 후 좌우 방향 전환

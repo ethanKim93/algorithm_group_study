@@ -9,12 +9,13 @@ def binary_check(P, X):
     cnt = 0
     while st <= end:
         cnt += 1
-        if (st+end)//2 == X:
+        mid = (st+end)
+        if mid//2 == X:
             break
-        elif (st+end)//2 > X:
-            end = (st+end)//2-1
+        elif mid//2 > X:
+            end = mid//2
         else:
-            st = (st+end)//2+1
+            st = mid//2
     return cnt
 
 

@@ -5,33 +5,26 @@ T = int(input())
 for tc in range(0, T):
     P, A, B = map(int, input().split())
 # A는 P까지 찾기, B는 1에서부터 찾기
-    Acnt = 0
-    Bcnt = 0
+    Acnt = Bcnt = 0
     start = 1
-    end = P
-    PA = P
-    PB = P
+    PA = PB = end = P
     while PA == A:
         PA = int((start + end) / 2)
-        if A > PA:
+        if A < PA:
             Acnt += 1
-            end = PA - 1
-        elif A < PA:
+            end = PA
+        elif A > PA:
             Acnt += 1
-            start = PA + 1
-        else:
-            continue
+            start = PA
 
     while PB == B:
         PB = int((start + end) / 2)
-        if B < PB:
+        if B > PB:
             Bcnt += 1
-            start = PB + 1
-        elif B > PB:
+            start = PB
+        elif B < PB:
             Bcnt += 1
-            end = PB - 1
-        else:
-            continue
+            end = PB
 
     if Acnt > Bcnt:
         print(Acnt)

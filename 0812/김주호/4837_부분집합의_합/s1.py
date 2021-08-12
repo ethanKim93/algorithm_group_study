@@ -6,7 +6,7 @@ for case in range(T):
     N, K = map(int, input().split())
 
     total = 0
-    for i in range(1 << 12):
+    for i in range(1, 1 << 12):
         sum_val = 0
         cnt = 0
         for j in range(12):

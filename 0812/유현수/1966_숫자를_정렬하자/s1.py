@@ -6,13 +6,11 @@ for tc in range(1, T+1):
     N = int(input())
     arr = list(map(int, input().split()))
 
-    for i in range(N-1):
-        min_idx = i
-        for j in range(i+1, N):
-            if arr[min_idx] > arr[j]:
-                min_idx = j
-        if arr[i] > arr[min_idx]:
-            arr[i], arr[min_idx] = arr[min_idx], arr[i]
+    # 선택 정렬
+    for i in range(N):
+        for j in range(i + 1, N):
+            if arr[i] > arr[j]:
+                arr[i], arr[j] = arr[j], arr[i]
 
     print('#{} '.format(tc), end='')
     print(*arr, sep=' ')

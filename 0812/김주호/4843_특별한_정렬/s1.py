@@ -6,7 +6,7 @@ for case in range(T):
     N = int(input())
     li = list(map(int, input().split()))
 
-    for i in range(N):
+    for i in range(10):
         for j in range(i + 1, N):
             if i % 2:
                 if li[i] > li[j]:

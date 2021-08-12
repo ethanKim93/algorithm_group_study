@@ -3,20 +3,16 @@ import sys
 sys.stdin = open('sample_input.txt')
 
 
-def search_cnt(num):
-    global P
-    start = 1
-    cnt = 0
-
+def search_cnt(start, end, num, cnt):
     while True:
-        c = int((start + P) / 2)
+        c = int((start + end) / 2)
         if num > c:
             cnt += 1
             start = c + 1
 
         elif num < c:
             cnt += 1
-            P = c - 1
+            end = c - 1
 
         else:
             return cnt
@@ -27,14 +23,12 @@ T = int(input())
 for tc in range(1, T + 1):
     P, A, B = map(int, input().split())
 
-    acnt = search_cnt(A)
-    bcnt = search_cnt(B)
-    print(acnt, bcnt)
+    # print(search_cnt(A), search_cnt(B))
     result = '0'
-    if acnt > bcnt:
+    if search_cnt(1, P, A, 0) > search_cnt(1, P, B, 0):
         result = 'B'
 
-    elif acnt < bcnt:
+    elif search_cnt(1, P, A, 0) < search_cnt(1, P, B, 0):
         result = 'A'
     else:
         result = '0'

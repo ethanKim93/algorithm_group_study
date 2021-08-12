@@ -14,7 +14,7 @@ for test in range(test_cases):
         if Pa == P or Pa == 1: # 만약 Pa가 시작/끝 값이면 바로 break
             break
         else:
-            page = start_a + (end_a-start_a)//2
+            page = (end_a+start_a)//2
             if Pa > page:
                 start_a = page
                 cnt_A +=1
@@ -29,7 +29,7 @@ for test in range(test_cases):
         if Pb == P or Pb ==1:
             break
         else:
-            page = start_b + (end_b - start_b)//2
+            page =  (end_b + start_b)//2
             if Pb > page:
                 start_b = page
                 cnt_B +=1

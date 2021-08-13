@@ -10,4 +10,4 @@ def itoa(n):
         n //= 10
     print(num[::-1])
 
-a = itoa(1234)
+itoa(1234)

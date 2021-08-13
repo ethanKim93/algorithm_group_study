@@ -1,3 +1,6 @@
+import sys
+sys.stdin = open('input.txt')
+
 di = [0, 1, 0, -1] #오른쪽부터 시계방향 순
 dj = [1, 0, -1, 0]
 
@@ -18,7 +21,8 @@ for tc in range(1, T+1):
             i, j = ni, nj # 현재칸을 다음칸 계산을 위한 값으로 사용
         else:
             dir = (dir + 1) % 4
-    print(f'#{tc}')
+
+    print('#{} {}'.format(tc,arr))
         # for i in range(N):
         #     for j in range(N):
         #         print(arr[i][j], end= ' ')

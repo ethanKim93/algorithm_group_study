@@ -8,6 +8,7 @@ def reverse1(a):
         s[i], s[n-1-1] = s[n-1-i], s[i]
     return ''.join(map(str, s))
 
+
 def reverse2(a):
     b = ''
     List_a = list(a)

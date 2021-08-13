@@ -5,5 +5,15 @@ def itoa(number):
         number = number//10
         munja = chr(num+48) +munja
     return munja
-a = int(input())
+def atoi(munja):
+    number = 0
+    j=len(munja)-1
+    for i in munja:
+        number += (ord(i)-48)*10**j
+        j -= 1
+    return number
+a,b = int(input()),input()
 print(itoa(a))
+print(type(itoa(a)))
+print(atoi(b))
+print(type(atoi(b)))

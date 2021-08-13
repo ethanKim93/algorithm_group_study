@@ -1,10 +1,21 @@
 def itoa(number):
     munja=''
-    while number>=1:
-        num = number%10
-        number = number//10
-        munja = chr(num+48) +munja
-    return munja
+    if number > 0:
+        while number>=1:
+            num = number%10
+            number = number//10
+            munja = chr(num+48) +munja
+        return munja
+    elif number < 0:
+        number *= -1
+        while number>=1:
+            num = number%10
+            number = number//10
+            munja = chr(num+48) +munja
+        return '-'+munja
+    else:
+        return chr(number+48)
+
 def atoi(munja):
     number = 0
     j=len(munja)-1

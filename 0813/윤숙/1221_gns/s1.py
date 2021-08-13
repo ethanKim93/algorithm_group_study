@@ -8,23 +8,23 @@ for tc in range(1, T + 1):
     NUMList = list(input().split())
     arr_N = []
     arr_RN=[]
+    Sum_Arr=[0]*10
     for i in range(int(LN)):
         for K, V in dic_N.items():
             if NUMList[i] == K:
                 arr_N.append(V)
 
-    for i in range(0,len(arr_N)-1):
-        min=i
-        for j in range(i+1, len(arr_N)):
-            if arr_N[min]>arr_N[j]:
-                min=j
-
-            arr_N[i],arr_N[min]=arr_N[min],arr_N[i]
-
     for i in range(len(arr_N)):
-        for K, V in dic_N.items():
-            if arr_N[i] == V:
-                arr_RN.append(K)
+        Sum_Arr[arr_N[i]]+=1
+
+   
+    i=-1
+    for k in dic_N:
+        i=i+1
+        for a in range(Sum_Arr[i]):
+            arr_RN.append(k)
+
+
 
 
     result=' '.join(arr_RN)

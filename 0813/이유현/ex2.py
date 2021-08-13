@@ -20,7 +20,7 @@ while True:
 
     else:
         for k in range(digit):
-            atoi += (ord(strnum[i]) - 48) * (10 ** (digit - i - 1))
+            atoi += (ord(strnum[k]) - 48) * (10 ** (digit - k - 1))
         print(atoi)
         break
 

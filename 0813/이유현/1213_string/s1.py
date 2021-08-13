@@ -6,5 +6,18 @@ for i in range(1, 11):
 
     find = input()
     sent = input()
-    cnt = sent.count(find)
+
+    flen = len(find)
+    slen = len(sent)
+    cnt = 0
+    for i in range(slen - flen + 1):
+        letter = 0
+        for j in range(flen):
+            if sent[i+j] == find[j]:
+                letter += 1
+        if letter == flen:
+            cnt += 1
     print('#{} {}'.format(tc, cnt))
+
+    # cnt = sent.count(find)
+    # print('#{} {}'.format(tc, cnt))

@@ -20,4 +20,3 @@ for tc in range(0, 10):
             search += 1
             C = ''
     print('#{} {}'.format(tc+1, count))
-    search = 0

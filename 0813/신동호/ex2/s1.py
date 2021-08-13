@@ -24,4 +24,4 @@ def fake_atoi(strings):
 hey = ''
 fake_itoa(-1234, hey)
 
-fake_atoi('-123')
+fake_atoi('0')

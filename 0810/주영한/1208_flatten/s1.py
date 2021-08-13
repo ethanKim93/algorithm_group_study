@@ -4,7 +4,6 @@ sys.stdin = open('input.txt')
 for tc in range(1, 11):
     dump_times = int(input())
     boxes = list(map(int, input().split()))
-
     # 박스 높이의 분포를 카운팅하고, 이때 가장 높은 높이와 가장 낮은 높이를 찾는다.
     heights_num = [0] * 101
     max_height = 0
@@ -31,9 +30,9 @@ for tc in range(1, 11):
         heights_num[min_height + 1] += 1
 
         # 가장 높은 높이와 가장 낮은 높이를 업데이트 한다
-        while heights_num[max_height] == 0:
+        if not heights_num[max_height]:
             max_height -= 1
-        while heights_num[min_height] == 0:
+        if not heights_num[min_height]:
             min_height += 1
 
         result = max_height - min_height

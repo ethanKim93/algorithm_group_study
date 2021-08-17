@@ -10,7 +10,7 @@ def isPalindrome(N, M, arr):
     for row in range(N):
         for col in range(N-M+1):  # M만큼 확인을 해야하므로 N-M
             for i in range(M//2):
-                if arr[row][col+i] != arr[row][col+M-1-i]:  # python의 경우 [::-1]을 이용해도 가능
+                if arr[row][col+i] != arr[row][col+M-1-i]:
                     break
             else:
                 result = arr[row][col:col+M]

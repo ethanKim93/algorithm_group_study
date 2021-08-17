@@ -16,4 +16,3 @@ for tc in range(1, 11):
 
 
     print('#{} {}'.format(tc, ans))
-

@@ -1,15 +1,17 @@
 import sys
-
 sys.stdin = open('input.txt')
 
 
 def HoriStr(Listring,M,N):
+
     for i in range(M):
-        strfind = ''
-        for k in range(M-N+1): #1
+
+        for k in range(M-N+1):
+            strfind = ''
             for j in range(k,k+N):
-                strfind += Listring[i][j]
-            print(strfind)
+                if i < N and j < M:
+                    strfind += Listring[i][j]
+
             strdefind = ''
             for m in range(len(strfind) - 1, -1, -1):
                 strdefind += strfind[m]
@@ -18,19 +20,19 @@ def HoriStr(Listring,M,N):
                 result += strdefind
                 return result
             else:
-
+                strfind = ''
+                strdefind = ''
                 continue
-
-
 
 
 def VertiStr(Listring,M,N):
 
     for i in range(M): #0~19
-        strfind = ''
-        for k in range(0,M-N+1): #8 0~7
-            for j in range(k,k+N): #0~13, 1~14, ...7~20
-                    strfind += Listring[j][i]
+        for k in range(0,M-N+1):
+            strfind = ''
+            for j in range(k,k+N):
+                    if j<N and i<M:
+                        strfind += Listring[j][i]
 
             strdefind = ''
             for m in range(len(strfind) - 1, -1, -1):
@@ -41,6 +43,8 @@ def VertiStr(Listring,M,N):
                 result += strdefind
                 return result
             else:
+                strfind = ''
+                strdefind = ''
                 continue
 
 
@@ -56,6 +60,10 @@ for tc in range(1, T + 1):
     result1 = VertiStr(Listring,M,N)
     result2 = HoriStr(Listring,M,N)
 
-    print(result1,result2)
+    if result1:
+        print('#{} {}'.format(tc, result1))
+    elif result2:
+        print('#{} {}'.format(tc, result2))
 
-    # print('#{} {}'.format(tc, result))
+
+

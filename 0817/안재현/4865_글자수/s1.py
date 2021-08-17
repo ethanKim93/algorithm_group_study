@@ -13,7 +13,7 @@ for i in range(0, T):
         my_dict[j] = 0
 
     for key, values in my_dict.items():
-        for a in range(0, len(M)):  # M 문자열의 글자를 1개씩 my_dict의 key값과 비교한다.
+        for a in range(len(M)):  # M 문자열의 글자를 1개씩 my_dict의 key값과 비교한다.
             if key == M[a]:   # 동일할 경우 해당 key의 value값에 1을 더한다.
                 my_dict[key] += 1
                 for val in my_dict.values():    # value값 중 최댓값을 result에 저장.

@@ -3,43 +3,47 @@ import sys
 sys.stdin = open('input.txt')
 
 
-def HoriStr(Listring):
-    for i in range(len(Listring)):
+def HoriStr(Listring,M,N):
+    for i in range(M):
         strfind = ''
-        for j in range(len(Listring[i])):
-            strfind += Listring[i][j]
-
-        strdefind = ''
-        for k in range(len(strfind) - 1, -1, -1):
-            strdefind += strfind[k]
-        result = ''
-        if strdefind == strfind:
-            result += strdefind
-            return result
-        else:
+        for k in range(M-N+1): #1
+            for j in range(k,k+N):
+                strfind += Listring[i][j]
+            print(strfind)
             strdefind = ''
-            continue
-
-    return -1
-
-
-def VertiStr(Listring):
-
-    for i in range(0,len(Listring[0])):
-        strfind = ''
-        for j in range(0,len(Listring)):
-            strfind += Listring[j][i]
-        strdefind = ''
-        for k in range(len(strfind) - 1, -1, -1):
-            strdefind += strfind[k]
+            for m in range(len(strfind) - 1, -1, -1):
+                strdefind += strfind[m]
             result = ''
-        if strdefind == strfind:
-            result += strdefind
-            return result
-        else:
-            continue
+            if strdefind == strfind:
+                result += strdefind
+                return result
+            else:
 
-    return -1
+                continue
+
+
+
+
+def VertiStr(Listring,M,N):
+
+    for i in range(M): #0~19
+        strfind = ''
+        for k in range(0,M-N+1): #8 0~7
+            for j in range(k,k+N): #0~13, 1~14, ...7~20
+                    strfind += Listring[j][i]
+
+            strdefind = ''
+            for m in range(len(strfind) - 1, -1, -1):
+                strdefind += strfind[m]
+
+            result = ''
+            if strdefind == strfind:
+                result += strdefind
+                return result
+            else:
+                continue
+
+
 
 
 
@@ -48,8 +52,10 @@ for tc in range(1, T + 1):
 
     M, N = map(int, input().split())
     Listring = [list(map(str, sys.stdin.readline().split('\n')[0])) for _ in range(N)]
-    print(Listring)
-    result1 = VertiStr(Listring)
-    result2 = HoriStr(Listring)
+
+    result1 = VertiStr(Listring,M,N)
+    result2 = HoriStr(Listring,M,N)
+
     print(result1,result2)
+
     # print('#{} {}'.format(tc, result))

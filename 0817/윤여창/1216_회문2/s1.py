@@ -16,7 +16,7 @@ def row_max(board, max_count):
     return max_count
 
 
-def get_column_max(board, max_count):
+def column_max(board, max_count):
     for m in range(100):
         column = ''
         for j in range(100):
@@ -36,7 +36,7 @@ def get_column_max(board, max_count):
 def get_max(board):
     max_count = 0
     max_count = row_max(board, max_count)
-    max_column = get_column_max(board, max_count)
+    max_column = column_max(board, max_count)
     if max_column > max_count:
         max_count = max_column
     return max_count

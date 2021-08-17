@@ -6,11 +6,21 @@ for tc in range(1, T+1):
     A, B = map(str, input().split())
 
     cnt = 0
-    for i in range(len(A)-len(B)+1):
-        if A[i:i+len(B)] == B:
+    idx = 0
+    while True:
+        if len(A[idx:]) < len(B):
+            break
+    # for idx in range(0, len(A)-len(B)+1):
+    #     if len(A[idx:]) < len(B):
+    #         break
+        if A[idx:idx+len(B)] == B:
             cnt += 1
+            idx += len(B)
+        else:
+            idx += 1
+    # print(cnt)
 
-    min_cnt = len(A) - len(B)*cnt + 1
-    print(min_cnt)
-
-    # print('#{} {}'.format(tc, min_cnt))
+    if cnt == 0:
+        print('#{} {}'.format(tc, len(A)))
+    else:
+        print('#{} {}'.format(tc, len(A) - (len(B)*cnt) + cnt))

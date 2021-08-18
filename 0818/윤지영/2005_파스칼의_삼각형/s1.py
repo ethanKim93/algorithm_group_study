@@ -4,7 +4,6 @@ sys.stdin = open("input.txt")
 T = int(input())
 stack = [0]*10
 stack[0] = 1
-stack[1] = 1
 
 
 def pascal(n):

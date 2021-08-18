@@ -18,4 +18,3 @@ for _ in range(T):
         space_li.append(reverse[num])
     print(N)
     print(*space_li)
-

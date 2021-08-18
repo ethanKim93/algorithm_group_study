@@ -21,7 +21,7 @@ for tc in range(1, T+1):
             stack_push('(')
         else:
             stack_pop()
-    if ls == []:
-        print(True)
-    else:
+    if ls:
         print(False)
+    else:
+        print(True)

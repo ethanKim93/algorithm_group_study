@@ -20,3 +20,5 @@ for tc in range(1, 11):
 
     # print(f'#{tc} {view}')             # 3.6이상
     print('#{} {}'.format(tc, ans))     # 3.5에서
+
+

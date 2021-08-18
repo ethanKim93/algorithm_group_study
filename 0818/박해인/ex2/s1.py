@@ -1,11 +1,31 @@
-# 모르겠어요.............
+import sys
+sys.stdin = open("input.txt")
 
-parenthesis = input()
-stack = []
+def push(item):
+    stack.append(item)
 
-for p in parenthesis:
-    if p == '(' or '{' or '[':
-        stack.append(p)
-    else:  # 괄호만 들어온다고 가정하고 else 사용
-        stack.pop(-1)
-        if
+def pop():
+    if len(stack) == 0:
+        # underflow <-> overflow
+        return
+    else:
+        return stack.pop(-1)
+
+for _ in range(2):
+    parenthesis = input()
+    stack = [0] * len(parenthesis)
+    result = True
+
+    for p in range(len(parenthesis)):
+        try:
+            if p == '(':
+                push('(')
+            else:
+                pop()
+        except:
+            print(False)
+    else:
+        if len(stack):
+            print(False)
+        else:
+            print(True)

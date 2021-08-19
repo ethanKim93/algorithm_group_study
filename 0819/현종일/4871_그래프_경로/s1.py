@@ -5,14 +5,22 @@ T = int(input())
 
 for tc in range(1, T+1):
     V, E = map(int,input().split())
-    arrs = []
+    matrix = [[] for _ in range(V+1)]
+
     for i in range(E):
-        n1, n2 = map(int, input().split())
-        arrs.append([n1,n2])
-    start, end = map(int, input().split())
-#     route = []
-#     for arr in arrs:
-#         if arr[0] == start:
-#             route.append(arr)
-#         if arr[1] == end:
-#             route.append(arr)
+        start, end = map(int, input().split())
+        matrix[start].append(end)
+
+    S, G = map(int, input().split())
+    visited = [0] * (V+1)
+
+    stack = [S]
+    while stack:
+        vertex = stack.pop()
+        if not visited[vertex]:
+            visited[vertex] = 1
+            for v in matrix[vertex]:
+                if not visited[v]:
+                    stack.append(v)
+
+    print('#{} {}'.format(tc, visited[G]))

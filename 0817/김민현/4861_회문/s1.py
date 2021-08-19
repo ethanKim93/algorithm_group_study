@@ -7,13 +7,8 @@ T = int(input())
 for tc in range(1,T+1):
     N,M = map(int,input().split())
     #이중 리스트로 만들기
-    arr = []
-    for n in range(N):
-        in_str = str(input())
-        arr_x = []
-        for i in in_str:
-            arr_x.append(i)
-        arr.append(arr_x)
+    arr = [input() for _ in range(N)]
+
 
     for i in range(N):
         flag1 = True # 가로줄

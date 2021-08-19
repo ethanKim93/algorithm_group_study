@@ -13,8 +13,8 @@ def pop():
 def make_password(s):
 
     for number in s:
-        if stack:  # 스택이 비어있지 않고,
-            if stack[-1] == number:  # top과 s의 알파벳이 같다면
+        if stack:
+            if stack[-1] == number:
                 pop()  # 중복문자 제거
             else:  # 중복이 아닌 문자는 stack에 추가
                 push(number)
@@ -25,10 +25,9 @@ def make_password(s):
 
 for test_case in range(1, 11):
     N, numbers = input().split()  # 문자열의 길이 N
-    N = int(N)
     numbers = list(numbers)
 
     stack = []
 
-    password = "".join(make_password(stack))
+    password = "".join(make_password(numbers))
     print('#{} {}'.format(test_case, password))

@@ -12,7 +12,7 @@ for _ in range(1,T+1):
     result = []
     tc, N = map(int, input().split())
     li = input().split()
-    for i in range(0,N*2,2):
+    for i in range(0,N*2,2):              # 2칸씩 건너뛰니까 끝값이 N * 2 해야함
         u,v = int(li[i]), int(li[i+1])
         G[u][v] = 1
     visited[A] = 1
@@ -36,9 +36,8 @@ for _ in range(1,T+1):
         cnt = 0
     print('#{} {}'.format(tc,cnt))
 
-
-
 # 재귀 이용
+
 
 def dfs(s):
     visited[s] = 1
@@ -59,6 +58,3 @@ for _ in range(1,T+1):
     dfs(A)
 
     print('#{} {}'.format(tc,visited[99]))
-
-
-

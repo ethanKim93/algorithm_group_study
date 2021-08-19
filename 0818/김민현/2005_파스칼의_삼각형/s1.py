@@ -1,0 +1,19 @@
+import sys
+sys.stdin = open('input.txt')
+
+p = [[0]*10 for _ in range(10)]
+for i in range(10):
+    for j in range(i+1):
+        if j == 0 or i == j:
+            p[i][j] = 1
+        else:
+            p[i][j] = p[i-1][j-1] + p[i-1][j]
+
+T = int(input())
+for tc in range(1,T+1):
+    N = int(input())
+    print('#{}'.format(tc))
+    for i in range(N):
+        for j in range(i+1): #대각선상의 원소까지
+            print(p[i][j],end=' ')
+        print()

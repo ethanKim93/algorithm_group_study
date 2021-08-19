@@ -1,3 +1,5 @@
+#실행 시간 : 3.90915s
+
 import sys
 sys.stdin = open("input.txt")
 

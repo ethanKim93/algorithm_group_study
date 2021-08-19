@@ -3,7 +3,7 @@ sys.stdin = open('sample_input.txt')
 
 
 
-def del_repeat(words):
+def del_repeat(repeat_str):
     if len(repeat_str) <= 1:
         if len(repeat_str) == 1:
             return 1

@@ -16,7 +16,7 @@ for tc in range(1, T+1):
     result = 1
     code = input()
     N = len(code)
-    for i in range(N):
+    for i in range(N):    # for i in code 로 해서 code[i] 대신 i 를 쓰는 방법도 있음
         if (code[i] == '(') or (code[i] == '{'):
             stack.append(code[i])
             top += 1
@@ -40,14 +40,3 @@ for tc in range(1, T+1):
 #                 return True
 #         else:
 #             return False
-
-
-
-
-
-
-
-
-
-
-

@@ -5,7 +5,7 @@ T = int(input())
 
 def DFS(S, V, G):  # 출발노드 S,  V개 이내의 노드 V, G 도착노드
     stack = []  # 지나온 정점을 저장
-    visited = [0] * (V+1)
+    visited = [0] * (V+1)  #
 
     # 시작 정점은 반드시 방문한다.
     i = S

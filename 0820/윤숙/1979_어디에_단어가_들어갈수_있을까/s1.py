@@ -48,4 +48,4 @@ for tc in range(1, T + 1):
 
 
 
-    print(total)
+    print('#{} {}'.format(tc,total))

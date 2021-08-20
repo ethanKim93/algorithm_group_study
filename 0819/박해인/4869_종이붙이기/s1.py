@@ -1,4 +1,18 @@
 import sys
+<<<<<<< HEAD
+
+sys.stdin = open("input.txt")
+
+t = int(input())
+box_list = [1, 3]
+for i in range(31):
+    box_list.append(box_list[-1] + box_list[-2] * 2)
+
+print(box_list)
+for tc in range(1, t + 1):
+    size = int(input())
+    print("#{} {}".format(tc, box_list[(size // 10) - 1]))
+=======
 sys.stdin = open('sample_input.txt')
 T = int(input())
 for test_case in range(1, T+1):
@@ -18,3 +32,4 @@ for test_case in range(1, T+1):
 
     print('#{} {}'.format(test_case, result))
 
+>>>>>>> 92ff47ec2ac89df817400374cabd441bfa841964

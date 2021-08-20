@@ -37,9 +37,9 @@ for _ in range(1, 11):
 sys.stdin = open('input.txt')
 
 def DFS():
-    visted = [0] * 100
-    stack = []
-    visted[0] = 1  # 처음은 무조건 방문
+    visited = [0] * 100
+    stack = [0]
+    visited[0] = 1  # 처음은 무조건 방문
 
     while stack:
         if stack[-1] == 99:  # 마지막 방문한 곳이 도착점이라면 1
@@ -47,21 +47,21 @@ def DFS():
 
         # 방문하고, pop
         v = stack[-1]
-        visted[v] = 1
+        visited[v] = 1
         stack.pop()
 
-        if adjacency.get(v, -1).get(v, -1) != -1:
+        if adjacency.get(v, -1) != -1:
             for i in adjacency[v]:
-                if visted[i] == 0:
+                if visited[i] == 0:
                     stack.append(i)
 
-        if visted[99]:
-            return 1
-        else:
-            return 0
+    if visited[99]:
+        return 1
+    else:
+        return 0
 
 
-for _ in range(1):
+for _ in range(10):
     test_case, roads = map(int, input().split())
     pair_list = list(map(int, input().split()))
 
@@ -72,8 +72,10 @@ for _ in range(1):
         else:  # key가 있으면 key 옆의 value append
             adjacency[pair_list[i]].append(pair_list[i+1])
 
-
     print('#{} {}'.format(test_case, DFS()))
+<<<<<<< HEAD:0819/박해인/1219_길찾기/s1.py
+=======
 
 
 >>>>>>> 92ff47ec2ac89df817400374cabd441bfa841964
+>>>>>>> 30be3c9fc99035320bd976ecafb29b8e97fdc785:0819/1219_길찾기/s1.py

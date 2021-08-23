@@ -6,12 +6,11 @@ for tc in range(1, 11):
     S = input()
     oper = []
     stack = []
-    prior = ['*','/']
     for i in S:
         if i.isdecimal():
            stack.append(i)
-        elif i not in prior:
-            while oper and oper[-1] in prior:
+        elif i == '+':
+            while oper and oper[-1] == '*':
                 stack.append(oper.pop())
             oper.append(i)
         else:
@@ -20,7 +19,6 @@ for tc in range(1, 11):
         stack.append(oper.pop())
 
     temp = []
-    op_list = prior + ['+','-']
     for j in stack:
         if j.isdecimal():
             temp.append(j)
@@ -30,11 +28,7 @@ for tc in range(1, 11):
             c = 0
             if j == '+':
                 c = a+b
-            elif j == '-':
-                c = a-b
-            elif j == '*':
-                c = a*b
             else:
-                c = a/b
+                c = a*b
             temp.append(c)
-    print('#{} {}'.format(tc,*temp))
+    print('#{} {}'.format(tc, *temp))

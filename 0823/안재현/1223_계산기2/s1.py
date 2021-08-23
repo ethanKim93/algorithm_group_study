@@ -1,3 +1,5 @@
+# 후위 표기식 사용중 실패
+
 import sys
 
 sys.stdin = open("input.txt")
@@ -22,18 +24,20 @@ for i in range(0, 10):
     mul = 1
     result = 0
     while j <= len(res2):
-        if res2[len(res2) - j - 1] == '*' and mul != 1:
+        if res2[len(res2) - j - 1] == '+' and mul != 1:
+            print(res[j])
             mul *= int(res[j])
             result += mul
             mul = 1
             j += 1
             print(result)
         elif res2[len(res2) - j - 1] == '+':
+            print(res[j])
             result += int(res[j])
             j += 1
             print(result)
         elif res2[len(res2) - j - 1] == '*':
+            print(res[j])
             mul *= int(res[j])
             j += 1
-            print(result)
     print('#{} {}'.format(i + 1, result))

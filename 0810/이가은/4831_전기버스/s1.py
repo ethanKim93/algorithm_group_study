@@ -12,7 +12,7 @@ for test in range(T):
         diff_charge.append(charge_list[i+1]-charge_list[i])
     diff_charge.append(N-charge_list[M-1]) # 마지막 N 정류장까지 남은 거리
 
-    for num in range(len(diff_charge)): # 정류장의 거리가 K보다 작으면 -1 출력
+    for num in range(len(diff_charge)): # 정류장의 거리가 K보다 작으면 0 출력
         if diff_charge[num] > K:
             charge_cnt = 0
             break

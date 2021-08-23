@@ -13,6 +13,8 @@ def sumset(idx):
         sum = 0
         for d in range(len(total)):
             sum += total[d]
+            if sum > 10:
+                return
         if sum == n:
             print(total, sum)
         return

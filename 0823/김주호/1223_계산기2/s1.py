@@ -1,22 +1,30 @@
-op_upper = ["*", "/"]
-
-for case in range(1):
+for case in range(10):
     N = int(input())
     st = input()
 
-    stack = []
+    rst = []
     op = []
 
     for ch in st:
         if "0" <= ch <= "9":
-            stack.append(ch)
-        elif op and not(op[-1] not in op_upper and ch in op_upper):
+            rst.append(int(ch))
+        elif op and ch == "+":
             while op:
-                stack.append(op.pop())
+                rst.append(op.pop())
             op.append(ch)
         else:
             op.append(ch)
 
     while op:
-        stack.append(op.pop())
-    print(stack)
+        rst.append(op.pop())
+
+    stack = []
+    for ch in rst:
+        if type(ch) is int:
+            stack.append(ch)
+        elif ch == "*":
+            stack.append(stack.pop() * stack.pop())
+        else:
+            stack.append(stack.pop() + stack.pop())
+
+    print("#{} {}".format(case + 1, stack[0]))

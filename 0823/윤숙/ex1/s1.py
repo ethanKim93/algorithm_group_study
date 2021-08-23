@@ -14,16 +14,27 @@
 # 2. )의 우선 순위가 *보다 높기 때문에 +연산자는 ) 다음에 위치
 
 
-Q=[2,'+',3,'*',4,'/',5]
+# 피연산자는 그대로!
+# 뒤에나오는 다음 순서의 연산자를 보고 바꿔준다.
 
-stack=[]
-op=[]
-for i in range(len(Q)):
-    if Q[i]==int:
-        stack.append(Q[i])
-    if Q[i]==str:
-        op.append(Q[i])
+Q = ['2', '+', '3', '*', '4', '/', '5']
+
+stack = []
+op = []
+outstack = []
+
+for i in Q:
+    if i == '*' or i == '-' or i == '/' or i == '+':
+        op.append(i)
+print(op)
 
 for i in range(len(op)):
 
+    if op[i] == '+' and (op[i + 1] == '*' or op[i + 1] == '/'):
+        outstack.append(op[i + 1])
+        outstack.append(op[i])
+    elif op[i] == '-' and (op[i + 1] == '*' or op[i + 1] == '/'):
+        outstack.append(op[i + 1])
+        outstack.append(op[i])
 
+print(outstack)

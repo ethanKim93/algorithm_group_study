@@ -10,7 +10,7 @@ for tc in range(1, T+1):
     print('#{}'.format(tc))
 
     N = int(input())
-    arr = [[0]*N for _ in range(N)]
+    arr = [[0] * N for _ in range(N)]
     x, y = 0, 0
     dire = 0
 

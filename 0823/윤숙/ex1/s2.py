@@ -1,7 +1,7 @@
-import sys
-sys.stdin=open('input.txt')
-T=10
+"""
+이해가 안가서 s1의 코드로 공부하여 짰습니다.
 
+"""
 class Stack:
     def __init__(self):
         self.items = []
@@ -66,29 +66,6 @@ def infix_to_postfix(arr):
 
 
 
-def cac(token,a,b):
-    if token=='+':
-        return a+b
-    elif token=='*':
-        return a*b
-
-
-for tc in range(1,T+1):
-    N=int(input())
-    arr=list(input())
-
-
-    c=infix_to_postfix(arr)
-    for token in c:
-        if token in '1234567890':
-            c.append(int(token))
-
-        elif token in '+*':
-            a=c.pop()
-            b=c.pop()
-            result= cac(token, b,a)
-            c.append(result)
-
-    total=c.pop()
-
-
+arr = input()
+result = infix_to_postfix(arr)
+print(result)

@@ -24,7 +24,7 @@ for tc in range(1,11):
             stack.append(ch)
     for i in stack:
         num += i
-
+    print(num)
     stack2 = []
     result = 0
     for k in num:

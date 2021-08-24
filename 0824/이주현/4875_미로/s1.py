@@ -5,13 +5,15 @@ def navi(row, col):
     check.append((row, col))
     result = 0
     for idx in range(4):
+        # 인덱스 범위 내에 있거나, 방문한 적이 없는경우
         if 0 <= row + delta_y[idx] < len(matrix) \
                 and 0 <= col + delta_x[idx] < len(matrix) \
                 and check[len(check) - 2] != (row + delta_y[idx], col + delta_x[idx]):
-
+            # 길일 경우
             if matrix[row + delta_y[idx]][col + delta_x[idx]] == '0':
                 result += navi(row + delta_y[idx], col + delta_x[idx])
                 check.pop()
+            # 목적지 일경우
             elif int(matrix[row + delta_y[idx]][col + delta_x[idx]]) > 1:
                 return 1
     return result

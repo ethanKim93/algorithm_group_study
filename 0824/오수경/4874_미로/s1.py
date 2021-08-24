@@ -5,11 +5,9 @@ def dfs(i, j):
     way = []
     visited[i][j] = 1
 
-
     # 상 우 하 좌
     di = [-1, 0, 1, 0]
     dj = [0, 1, 0, -1]
-
 
     for k in range(4):
         ni = i + di[k]
@@ -25,27 +23,18 @@ def dfs(i, j):
 T = int(input())
 for tc in range(1, T+1):
     N = int(input())
-    miro = []
-    for _ in range(N):
-        miro.append(input())
-
+    miro = [input() for _ in range(N)]
     visited = [[0]*N for _ in range(N)]
 
-    # 시작점
+    # 시작점, 끝점
     i, j = 0, 0
-    for a in range(len(miro)):
-        for b in range(len(miro)):
-            if miro[a][b] == '2':
-                i = a
-                j = b
-
-    # 끝점
     end_i, end_j = 0, 0
     for a in range(len(miro)):
         for b in range(len(miro)):
+            if miro[a][b] == '2':
+                i, j = a, b
             if miro[a][b] == '3':
-                end_i = a
-                end_j = b
+                end_i, end_j = a, b
 
     dfs(i, j)
     print('#{} {}'.format(tc, visited[end_i][end_j]))

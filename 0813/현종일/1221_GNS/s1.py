@@ -10,7 +10,7 @@ for tc in range(1, T+1):
     sort_arr = []
 
     for num in arr:
-        for idx,num2 in enumerate(newnums):
+        for idx, num2 in enumerate(newnums):
             if num == num2:
                 cnt_arr[idx] += 1
 

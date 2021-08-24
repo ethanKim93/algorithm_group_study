@@ -300,6 +300,7 @@ Thumbs.db
 Thumbs.db:encryptable
 ehthumbs.db
 ehthumbs_vista.db
+.notracking
 
 # Dump file
 *.stackdump

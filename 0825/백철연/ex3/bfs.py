@@ -41,14 +41,3 @@ visited = [0]*(V+1)
 # bfs 탐색 시작
 bfs(1)
 
-# V,E = map(int, input().split())
-# edge = list(map(int,input().split()))
-# adjList = [[] for _ in range(V+1)]           # 인접 리스트
-#
-# for i in range(E):
-#     n1, n2 = edge[2*i], edge[2*i+1]
-#
-#     adjList[n1].append(n2)
-#     adjList[n2].append(n1)
-#
-# print(adjList)

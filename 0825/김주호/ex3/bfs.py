@@ -7,16 +7,22 @@ sys.stdin = open('input.txt')
 
 
 def bfs(v):
-    place = v - 1
-    queue = [place]
+    queue = [0] * V
+    queue[0] = v - 1
+    front = -1
+    rear = 0
+
     c = 1
-    while queue:
-        p = queue.pop(0)
+    while front != rear:
+        front += 1
+        front %= V
+        p = queue[front]
         if not cnt[p]:
             cnt[p] = c
-            while Road[p]:
-                node = Road[p].pop(0)
-                queue.append(node)
+            for node in Road[p]:
+                rear += 1
+                rear %= V
+                queue[rear] = node
             c += 1
 
     print(cnt)

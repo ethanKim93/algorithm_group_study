@@ -31,12 +31,12 @@ class Queue:
         """
         self.queue.append(item)
 
-        # deQueue
-
+    # deQueue
     def dequeue(self):
         """
         Queue에서 원소 삭제 후 반환
         """
+        # pop(0)
         dequeue_object = None
         if self.is_empty():
             print(-1)
@@ -53,11 +53,29 @@ class Queue:
         return len(self.queue)
 
 # 1. queue 인스턴스 생성
+queue = Queue()
 
 # 2. queue가 비었는지 확인
+print(queue.is_empty())
 
 # 3. 1, 2, 3 원소를 queue에 삽입
+queue.enqueue(1)
+queue.enqueue(2)
+queue.enqueue(3)
 
 # 4. 원소가 정상적으로 삽입되었는지 확인 / 사이즈 확인 / 비었는지 여부 확인
+print(queue.queue)
+print(queue.size())
+print(queue.is_empty())
 
 # 5. queue에서 원소 삭제 후 반환 & 원소 확인 / 사이즈 확인
+print(queue.dequeue())
+print(queue.queue)
+print(queue.size())
+print(queue.dequeue())
+print(queue.queue)
+print(queue.size())
+print(queue.dequeue())
+print(queue.queue)
+print(queue.size())
+print(queue.is_empty())

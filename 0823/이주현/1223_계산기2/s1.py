@@ -27,7 +27,6 @@ for tc in range(1, 11):
                         if not stack_cal:
                             break
                     stack_cal += [string[i]]
-
             else:
                 stack_cal += [string[i]]
     for i in range(len(stack_cal)):

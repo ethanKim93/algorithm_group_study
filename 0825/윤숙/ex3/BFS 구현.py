@@ -1,3 +1,5 @@
+
+
 def bfs(s, V):
     q = []
     visited = [0] * (V + 1)
@@ -11,7 +13,8 @@ def bfs(s, V):
                 q.append(i)
                 visited[i] = visited[t] + 1
 
-
+import sys
+sys.stdin=open('input.txt')
 V, E = map(int, input().split())
 edge = list(map(int, input().split()))
 adj = [[0] * (V + 1) for _ in range(V + 1)]

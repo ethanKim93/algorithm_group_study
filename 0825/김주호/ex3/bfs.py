@@ -14,15 +14,15 @@ def bfs(v):
 
     c = 1
     while front != rear:
-        front += 1
-        front %= V
+        front = (front + 1) % V
         p = queue[front]
         if not cnt[p]:
             cnt[p] = c
-            for node in Road[p]:
-                rear += 1
-                rear %= V
+            while Road[p]:
+                node = Road[p][0]
+                rear = (rear + 1) % V
                 queue[rear] = node
+                del(Road[p][0])
             c += 1
 
     print(cnt)

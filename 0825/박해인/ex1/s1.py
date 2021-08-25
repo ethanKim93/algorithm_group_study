@@ -24,7 +24,7 @@ class Queue:
         if len(self.queue) == 0:
             return True
         else:
-            False
+            return False
 
     # enQueue 
     def enqueue(self, item):
@@ -58,6 +58,7 @@ Q.enqueue(1)
 Q.enqueue(2)
 Q.enqueue(3)
 # 4. 원소가 정상적으로 삽입되었는지 확인 / 사이즈 확인 / 비었는지 여부 확인
+print(Q.queue)
 print(Q.size())
 print(Q.is_empty())
 # 5. queue에서 원소 삭제 후 반환 & 원소 확인 / 사이즈 확인

@@ -8,8 +8,8 @@ for test_case in range(1,T+1):
     AR, BR = P, P
     A_find, B_find = 0, 0
     while 1:
-        AP = int(int(AL+AR)/2)
-        BP = int(int(BL+BR)/2)
+        AP = (AL+AR)//2
+        BP = (BL+BR)//2
         if AP < A:
             AL = AP
         elif A < AP:

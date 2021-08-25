@@ -82,7 +82,7 @@ def enqueue(item):
     """
     global rear
     if is_full():
-        print('Queue is full!')
+        return 'Queue is full!'
     else:
         rear += 1
         Q[rear] = item
@@ -95,7 +95,7 @@ def dequeue():
     """
     global front
     if is_empty():
-        print('Queue is empty!')
+        return 'Queue is empty!'
     else:
         front += 1
         return Q[front]

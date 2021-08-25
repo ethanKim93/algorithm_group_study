@@ -49,30 +49,25 @@ class Queue:
         """
         return self.rear - self.head
 
+
 # 1. queue 인스턴스 생성
+q = Queue()
 
 # 2. queue가 비었는지 확인
-
-# 3. 1, 2, 3 원소를 queue에 삽입
-
-# 4. 원소가 정상적으로 삽입되었는지 확인 / 사이즈 확인 / 비었는지 여부 확인
-
-# 5. queue에서 원소 삭제 후 반환 & 원소 확인 / 사이즈 확인
-
-
-q = Queue()
 print(q.is_empty())
 
+# 3. 1, 2, 3 원소를 queue에 삽입
 q.enqueue(1)
 q.enqueue(2)
 q.enqueue(3)
 
+# 4. 원소가 정상적으로 삽입되었는지 확인 / 사이즈 확인 / 비었는지 여부 확인
 print(q.q)
 print(q.size())
 print(q.is_empty())
 
+# 5. queue에서 원소 삭제 후 반환 & 원소 확인 / 사이즈 확인
 print(q.dequeue())
 print(q.dequeue())
 print(q.dequeue())
 print(q.size())
-

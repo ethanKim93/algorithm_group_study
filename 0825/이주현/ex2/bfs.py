@@ -9,9 +9,9 @@ def bfs(v):
         if not visited[t]:
             visited[t] = 1
             print(t+1)
-        for i in range(len(edges[t])):
-            if visited[edges[t][i]] != 1:
-                queue.append(edges[t][i])
+            for i in range(len(edges[t])):
+                if visited[edges[t][i]] != 1:
+                    queue.append(edges[t][i])
 
 import sys
 sys.stdin = open('input.txt')

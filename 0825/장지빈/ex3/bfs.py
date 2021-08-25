@@ -4,13 +4,13 @@ bfs - 인접 행렬 or 인접 리스트 구현
 
 def bfs(v):
     queue = []
-    queue.append(v)
+    queue.append(v)         # queue = [v]
     visited[v] = 1
     while queue:
-        t = queue.pop()
+        t = queue.pop()         # t = queue.pop(0)
         print(t, end = ' ')
         for i in range(1, V+1):
-            if adj[t][i] == 1 and visited[i] == 0:
+            if adj[t][i] == 1 and visited[i] == 0:      # if adj[t][i] and not visited[i]
                 queue.append(i)
                 visited[i] = visited[t] + 1
 

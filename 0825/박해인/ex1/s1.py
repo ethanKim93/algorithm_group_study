@@ -63,8 +63,11 @@ print(Q.size())
 print(Q.is_empty())
 # 5. queue에서 원소 삭제 후 반환 & 원소 확인 / 사이즈 확인
 print(Q.dequeue())  # 1
+print(Q.queue)
 print(Q.size())
 print(Q.dequeue())  # 2
+print(Q.queue)
 print(Q.size())
 print(Q.dequeue())  # 3
+print(Q.queue)
 print(Q.size())

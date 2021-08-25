@@ -63,7 +63,7 @@ def is_full():
     - 리스트에서는 큰 문제가 되지 않지만 고정 배열의 경우 확인 필요
     """
     global rear
-    return rear == len(Q)
+    return rear == SIZE - 1
 
 # isEmpty
 def is_empty():
@@ -81,11 +81,11 @@ def enqueue(item):
     - Stack의 top을 옮겨놓고 그 자리에 요소를 넣었던 것을 떠올리자
     """
     global rear
-    if rear + 1 < SIZE:
+    if is_full():
+        print("Queue is full!")
+    else:
         rear += 1
         Q[rear] = item
-    else:
-        print("Queue is full!")
 
 # deQueue
 def dequeue():
@@ -94,12 +94,11 @@ def dequeue():
     - front를 뒤쪽으로 옮기고(front + 1) 그 자리에 있는 원소를 반환하며 삭제
     """
     global front
-    if front + 1 < SIZE:
+    if is_empty():
+        return "Queue is empty!"
+    else:
         front += 1
         return Q[front]
-    else:
-        return "Queue is empty!"
-
 
 # Qpeek
 def Qpeek():
@@ -111,6 +110,8 @@ def Qpeek():
      - dequeue와 비교하며 생각
     """
     global front, rear
+    if is_empty():
+        return "Queue is empty!"
     return Q[front + 1]
 
 

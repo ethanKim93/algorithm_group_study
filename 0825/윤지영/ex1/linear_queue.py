@@ -110,7 +110,10 @@ def Qpeek():
      - dequeue와 비교하며 생각
     """
     global front, rear
-    return Q[front+1]
+    if is_empty():
+        print('Queue is empty!')
+    else:
+        return Q[front+1]
 
 
 #1. Queue 초기화 상태 확인

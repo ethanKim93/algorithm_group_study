@@ -2,21 +2,21 @@ import sys
 sys.stdin = open('input.txt')
 
 def postfix(oper_str):
-    df_result = ''
-    df_stack = []
-    for i in range(len(oper_str)):
-        if '0' <= oper_str[i] <= '9':
-            df_result += oper_str[i]
-        elif oper_str == '+':
-            while df_stack:
-                oper_str += df_stack.pop()
-            df_stack.append('+')
-        elif oper_str == '*':
-            df_stack.append('*')
-    while df_stack:
-        df_result += df_stack.pop()
-    return df_result
-
+    N = input
+    eq = input()
+    stack, post = [], []
+    for i in eq:
+        if i.isdecimal():
+            post.append(int(i))
+        else:
+            if i == '+':
+                while stack:
+                    post.append(stack.pop())
+                stack.append(i)
+            else:
+                stack.append(i)
+    while stack:
+        post.append(stack.pop())
 
 for tc in range(10):
     N = int(input())

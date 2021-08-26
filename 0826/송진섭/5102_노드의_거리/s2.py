@@ -13,7 +13,7 @@ def bfs(start, goal):
             if adj[t][i] == 1 and visited[i] == 0:
                     q.append(i)
                     visited[i] = visited[t] + 1
-    if not visited[goal] or not visited[start]:  # 둘 중 하나라도 0이면 간선이 이어지지 않은 것
+    if not visited[goal]:  # 목적지 visited 리스트 값이 0이면 간선이 이어지지 않은 것
         return 0
     else:
         return visited[goal] - visited[start]  # 노드간 거리 반환

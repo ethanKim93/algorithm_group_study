@@ -7,7 +7,7 @@ def pizza():
         pit.append(pizidx.pop(0))
     while len(pit) > 1:
         piz = pit.pop(0)
-        piz[1] = piz[1]//2
+        piz[1] //= 2
         if piz[1]:
             pit.append(piz)
         else:

@@ -16,7 +16,7 @@ def BFS(u, v):
             if 0 <= ddx < N and 0 <= ddy < N and not visited[ddx][ddy]:
                 if maze[ddx][ddy] == 0 or maze[ddx][ddy] == 3:
                     stack.append([ddx, ddy])
-                    visited[ddx][ddy] = visited[now[0]][now[1]] + 1
+                    visited[ddx][ddy] = 1
                     if [ddx, ddy] == [goal[0], goal[1]]:
                         return 1
     return 0

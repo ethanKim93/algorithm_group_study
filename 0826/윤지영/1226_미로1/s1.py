@@ -8,17 +8,17 @@ def bfs(s,v):
     si , sj = s[0], s[1]
     visited[si][sj] = 1  # 시작점 방문표시
     while q:
-        t = q.pop(0)    # 큐에서 하나 꺼내서 t에 저장 #deQ
-        t1, t2 = t[0], t[1]
+        t1, t2 = q.pop(0)    # 큐에서 하나 꺼내서 t에 저장 #deQ
         for w in adjList[t1][t2]:       # 갈 수 있는 곳 w 순회
             w1,w2 = w[0],w[1]
             if visited[w1][w2] == 0:    # 미방문했다면
-                if w == v:              # 도착점에 도착했다면
+                if w == v:
                     return 1
                 else:
                     q.append(w)             # 정점 인큐
                     visited[w1][w2] = visited[t1][t2] + 1
     return 0
+
 
 for _ in range(1,11):
     tc = int(input())
@@ -42,8 +42,5 @@ for _ in range(1,11):
                 if 0 <= ni < N and 0 <= nj < N:
                     if maze[ni][nj] != '1':
                         adjList[i][j].append([ni,nj])
-                else:
-                    ni -= di[k]
-                    nj -= dj[k]
 
     print('#{} {}'.format(tc, bfs(s,e)))

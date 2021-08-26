@@ -6,7 +6,7 @@ def BFS(start):
     queue.append(start)                                             # 시작점 enQ
     visited[start[0]][start[1]] = 1                                 # 시작점 방문처리
     while queue:                                                    # 큐가 빌 때까지 반복
-        now = queue.pop(0)                                          # enQ
+        now = queue.pop(0)                                          # deQ
         for i in range(4):                                          # 우하좌상 순으로 탐색
             nr = now[0] + dr[i]
             nc = now[1] + dc[i]

@@ -53,6 +53,7 @@ V,E = map(int,input().split())
 node = list(map(int,input().split()))
 
 # Graph 초기화
+#인접 행렬
 #adj =[[0]*(V+1) for _ in range(V+1)]
 # for i in range(E):
 #     ni,nj = node[2*i], node[2*i+1]

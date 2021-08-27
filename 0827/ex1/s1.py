@@ -29,12 +29,11 @@ def post_order(v):
 
 T = int(input())
 N = list(map(int, input().split()))
-h = T - 1  # 트리 구조의 노드 당 간선 수
+h = T - 1
 
 left = [0] * (T + 1)
 right = [0] * (T + 1)
 
-# 부모 노드 - 자식 노드(왼, 오) 할당
 for i in range(E):
     p, c = N[2 * i], N[2 * i + 1]
     if not left[p]:

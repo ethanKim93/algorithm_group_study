@@ -9,7 +9,7 @@ def VLR(s):
 v = int(input())
 e = list(map(int, input().split()))
 
-edges = [[] for _ in range(len(e))]
+edges = [[] for _ in range(v+1)]
 
 for i in range((v-1)):
     edges[e[i*2]].append(e[i*2+1])

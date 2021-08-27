@@ -56,5 +56,7 @@ for tc in range(1, 11):
     stack = []  # 스택
     result = [] # 변환결과 배열
     answer = [] # 계산 결과를 담을 배열
+
     postfix()   # 후위표기식 변환 함수
+    print(result)
     print('#{} {}'.format(tc, postfix_calc()))

@@ -1,3 +1,5 @@
+# -*- coding:utf-8 -*-
+
 import sys
 sys.stdin = open("sample_input.txt")
 
@@ -34,6 +36,7 @@ def BFS(maze, start_row, start_col, end_row, end_col):
             new_row = temp_row + direction[0]
             new_col = temp_col + direction[1]
             if 0 <= new_row < N and 0 <= new_col < N and not maze[new_row][new_col]:
+            # if 0 <= new_row < N and 0 <= new_col < N and (not maze[new_row][new_col] or maze[new_row][new_col] == 3:
                 check_queue.append([new_row, new_col])
                 maze[new_row][new_col] = maze[temp_row][temp_col] + 1
     return 0

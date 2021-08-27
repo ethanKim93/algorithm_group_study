@@ -18,12 +18,12 @@ def backdata(data):
             stack.append(i)
             continue
         elif i == '*':
-            while stack[-1] == '*':
+            while stack and stack[-1] == '*':
                 back_str += (stack.pop())
             stack.append(i)
             continue
         elif i == ')':
-            while 1:
+            while stack:
                 if stack[-1] == '(':
                     stack.pop()
                     break

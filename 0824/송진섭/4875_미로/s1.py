@@ -1,4 +1,3 @@
-# 오답
 import sys
 sys.stdin = open('sample_input.txt')
 
@@ -15,8 +14,7 @@ def dfs():
                 mr, mc = vertex_r + dr[k], vertex_c + dc[k]
                 if 0 <= mr < N and 0 <= mc < N:
                     if visited[mr][mc] == 0 and miro[mr][mc] == '0':
-                        vertex_r, vertex_c = mr, mc
-                        stack.append([vertex_r, vertex_c])
+                        stack.append([mr, mc])
                     elif miro[mr][mc] == '2':
                         return 1
     return 0
@@ -36,5 +34,4 @@ for tc in range(1, T+1):
 
     stack = [[goal_row, goal_col]]
     visited = [[0] * N for _ in range(N)]
-
     print('#{} {}'.format(tc, dfs()))

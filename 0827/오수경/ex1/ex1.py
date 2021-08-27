@@ -24,7 +24,6 @@ def post_order(n):
         in_order(right[n])
         print(n, end=" ")
 
-# 후위 순회
 
 V = int(input())
 edge = list(map(int, input().split()))

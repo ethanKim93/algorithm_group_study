@@ -2,7 +2,6 @@ import sys
 
 sys.stdin = open("input.txt")
 
-
 def DFS(idx, idy):
     global ans, temps
 

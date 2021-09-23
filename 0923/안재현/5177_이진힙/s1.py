@@ -2,12 +2,12 @@ import sys
 sys.stdin = open('sample_input.txt')
 
 
-def tree(data):
-    heap.append(data)
-    index = len(heap) - 1
-    while index > 1 and heap[index] < heap[index // 2]:
-        heap[index], heap[index // 2] = heap[index // 2], heap[index]
-        index //= 2
+def tree(n):
+    arr.append(n)
+    idx = len(arr) - 1
+    while idx > 1 and arr[idx] < arr[idx // 2]:
+        arr[idx], arr[idx // 2] = arr[idx // 2], arr[idx]
+        idx //= 2
 
 
 T = int(input())
@@ -15,13 +15,12 @@ for tc in range(T):
     answer = 0
     N = int(input())
     NS = list(map(int, input().split()))
-    heap = [0]
+    arr = [0]
     for i in NS:
         tree(i)
-    print(heap)
     result = 0
-    if N % 2 == 0:
-        val = N % 2
-        while val:
-            result = heap[val]
-    print(result)
+    val = N // 2
+    while val:
+        result += arr[val]
+        val //= 2
+    print('#{} {}'.format(tc + 1, result))

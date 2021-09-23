@@ -16,4 +16,4 @@ for tc in range(1, 11):
                 tree[i] = [i,int(tree[int(tree[i][2])][1]) * int(tree[int(tree[i][3])][1])]
             else:
                 tree[i] = [i,int(tree[int(tree[i][2])][1]) / int(tree[int(tree[i][3])][1])]
-    print(int(tree[1][1]))
+    print('#{} {}'.format(int(tree[1][1])))

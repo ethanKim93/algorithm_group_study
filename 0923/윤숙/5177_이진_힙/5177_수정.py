@@ -9,11 +9,14 @@ for tc in range(1,T+1):
 
 
     for i in range(V+1):
-        while True:
+        p=V//2
+        while p!=1:
             if heap_list[i]<heap_list[i//2]:
                 tmp=heap_list[i//2]
                 heap_list[i//2]=heap_list[i]
                 heap_list[i]=tmp
+                p//=2
+                i//=2
             else:
                 break
 
@@ -23,5 +26,3 @@ for tc in range(1,T+1):
         V=V//2
         cac+=heap_list[V]
     print('#{} {}'.format(tc,cac))
-
-

@@ -7,7 +7,7 @@ for tc in range(1,int(input())+1):
     maps = [list(map(int,input().split())) for _ in range(n)]
     temps = [["NO"]*m for _ in range(n)]
     dirs = [0,(-1,0),(0,1),(1,0),(0,-1)]
-    from_turnel = [[0],[1,2,3,4],[1,3],[2,4],[4,3],[1,3],[2,1],[2,3]] # 처음: 0, 상: 1, 우:2, 하: 3, 좌: 4
+    from_turnel = [[0],[1,2,3,4],[1,3],[2,4],[4,3],[1,4],[2,1],[2,3]] # 처음: 0, 상: 1, 우:2, 하: 3, 좌: 4
     go_turnel = [[0],[1,2,3,4],[1,3],[2,4],[1,2],[2,3],[3,4],[1,4]] # 처음: 0, 상: 1, 우:2, 하: 3, 좌: 4
     q = deque([])
     q.append([r,c])
@@ -24,7 +24,6 @@ for tc in range(1,int(input())+1):
                             q.append([nr,nc])
                             temps[nr][nc] = temps[r][c] + 1
 
-    print(*temps,sep="\n")
     ans = 0
     for i in range(n):
         for x in range(m):
@@ -32,4 +31,5 @@ for tc in range(1,int(input())+1):
                 if temps[i][x] <= l-1:
                     ans += 1
 
-    print(ans)
+    print("#{} {}".format(tc,ans))
+# Pass

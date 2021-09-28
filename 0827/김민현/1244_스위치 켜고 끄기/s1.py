@@ -32,8 +32,7 @@ for _ in range(P):
                 break
             k += 1
 
-for idx in range(0,len(switch)):
-    print(switch[idx],end=' ')
-    if idx and not (idx+1)%20:
+for idx in range(1,len(switch)+1):
+    print(switch[idx-1],end=' ')
+    if not idx%20:
         print()
-print()

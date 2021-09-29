@@ -1,5 +1,5 @@
 import sys
-
+#2진수->10진수
 sys.stdin = open('input.txt')
 binaryarr = input()
 k = 7

@@ -6,7 +6,7 @@ for tc in range(1, T+1):
     N = int(input())
     numbers = [0] + list(map(int, input().split()))
 
-    for i in range(2, N+1):  # type: int
+    for i in range(2, N+1):
         # 부모가 자식노드보다 크면 자리 바꿔주기
         while numbers[i] < numbers[i//2]:
             numbers[i], numbers[i//2] = numbers[i//2], numbers[i]

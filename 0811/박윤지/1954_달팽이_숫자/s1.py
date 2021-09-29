@@ -22,6 +22,8 @@ for tc in range(1, T+1):
             i, j = ni, nj
         else:
             k = (k + 1) % 4
+
+    print(snail)
     print('#{}'.format(tc))
     for row in snail:
         for num in row:

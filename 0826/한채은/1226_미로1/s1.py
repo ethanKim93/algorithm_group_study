@@ -10,7 +10,7 @@ def bfs(end):
 
     q = []  # 가기로 한 장소를 append 해놓기
 
-    i, j = end[0], end[1] # 시작지점 (도착지를 시작점으로 본 뒤 출발)
+    i, j = end[0], end[1] # 시작지점 (도착지를 시작점으로 본 뒤 출발) q에 아무것도 없으니까 하나 넣어주고 시작하기
     q.append([i, j])     # 빈 q에다가 i와 j의 시작점을 append 함
     while q:    # 만약 q가 있으면
         i, j = q.pop(0)     # 내가 가기로 한 장소를 보려고 pop

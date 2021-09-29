@@ -16,10 +16,7 @@ for tc in range(1, 11):
             else:                                   # '*' 연산자라면
                 stack.append(i)                     # 바로 연산자 스택에 추가
     while stack:                                    # 중위표기식을 다 순회한 후에 연산자 스택에 연산자가 남아있으면
-        post.append(stack.pop())
-
-    print(post)                                     # 남아있는 연산자를 하나씩 꺼내서 후위표기식에 추가
-
+        post.append(stack.pop())                    # 남아있는 연산자를 하나씩 꺼내서 후위표기식에 추가
     for i in post:                                  # 후위표기식에서 순회
         if i == '+':                                # '+' 연산자라면
             num1 = stack.pop()

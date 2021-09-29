@@ -9,7 +9,7 @@ for k in range(len(num)):
     l = len(num[k])
     result = s = 0
     for m in range(l-1,-1,-1):
-        result += 2**s * int(num[k][m])
+        result += (1 << s) * int(num[k][m])
         s += 1
     print(result, end=' ')
 

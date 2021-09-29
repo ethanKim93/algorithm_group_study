@@ -1,5 +1,5 @@
 # hex_str = '0F97A3'
-hex_str = ['01D06079861D79F99F']
+hex_str = '01D06079861D79F99F'
 
 hex_bin = []
 for hex in hex_str:

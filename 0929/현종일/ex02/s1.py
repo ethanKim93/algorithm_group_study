@@ -14,9 +14,9 @@ for i in range(len(n_2)//7+1):
         while len(temp) != 7:
             temp = '0' + temp
     result = 0
-    for idx, j in enumerate(temp):
+    for k, j in enumerate(temp):
         if j == "1":
-            result += 2**(6-idx)
+            result += 2**(6-k)
     print(result, end=" ") if i == len(n_2)//7 else print(result, end=", ")
 
 

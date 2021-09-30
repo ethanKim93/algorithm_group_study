@@ -1,7 +1,9 @@
 import sys
 sys.stdin = open('input.txt')
-
+#####실패
 def decrypt():
+    startidx = len(li) - 1
+    cnt = 7
     for i in range(N):
         for j in range(M-1, -1, -1):
             if li[i][j] == '1':
@@ -10,6 +12,12 @@ def decrypt():
                     code.append(key[li[i][k:k + 7]])
                 a = code[0] + code[2] + code[4] + code[6]
                 b = code[1] + code[3] + code[5] + code[7]
+                if li[i][j-1] == li[i][j]:
+                    for k in range():
+                        code.append(key[li[i][k:]])
+                    a = code[0] + code[2] + code[4] + code[6]
+                    b = code[1] + code[3] + code[5] + code[7]
+
                 if (a * 3 + b) % 10:
                     return 0
                 else:
@@ -30,4 +38,16 @@ for tc in range(1, int(input())+1):
         '0110111': 8,
         '0001011': 9,
     }
+    key_bi = [
+        [3, 2, 1, 1],
+        [2, 2, 2, 1],
+        [2, 1, 2, 2],
+        [1, 4, 1, 1],
+        [1, 1, 3, 2],
+        [1, 2, 3, 1],
+        [1, 1, 1, 4],
+        [1, 3, 1, 2],
+        [1, 2, 1, 3],
+        [3, 1, 1, 2]
+    ]
     print('#{} {}'.format(tc, decrypt()))

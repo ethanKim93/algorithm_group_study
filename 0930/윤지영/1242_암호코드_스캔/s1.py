@@ -118,41 +118,6 @@ for tc in range(1,T+1):
 
 
 
-
-
-
-
-
-
-
-    # start = []
-    # end = []
-    # find_start()
-    # num_list = []
-    # result = []
-    # for k in range(len(start)):
-    #     num = li[start[k][0]][end[k][1]:start[k][1]+1]
-    #     if num not in num_list:
-    #         num_list.append(num)
-    # for bit in num_list:
-    #     ans = ''
-    #     for k in range(len(bit)):
-    #         ans += Bbit_print(int(bit[k], 16))
-    #     result.append(ans)
-    #     print(ans)
-    # for m in range(len(result)):
-    #     ans = result[m]
-    #     char_len = len(ans)//8
-    #     bin_list = []
-    #     j = 0
-    #     for _ in range(8):
-    #         bin_list.append(result[m][j:j+char_len])
-    #         j += char_len
-    #     print(bin_list)
-
-
-
-
 # 16진수를 먼저 찾은 다음에 2진수로 바꿔서 계산하려했는데, 그렇게 하려니까 2진수로 바꾼다음에 어디서부터 시작이고 끝인지 찾을때 고려해야할게 너무 많아서 방법 변경
 # check = {
 #     '3:2:1:1' : 0, '2:2:2:1' : 1, '2:1:2:2':2, '1:4:1:1':3, '1:1:3:2':4, '1:2:3:1':5, '1:1:1:4':6, '1:3:1:2':7,

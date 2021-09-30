@@ -93,12 +93,7 @@ def solve(decode_set):
         if flag:
             idx -= offset
             temp_string, num = code_sum(temp_result)
-            if results:
-                for result in results:
-                    if result[0] == temp_string:
-                        continue
-            else:
-                results.append((temp_string, num))
+            results.append((temp_string, num))
         else:
             idx -= 1
     return results

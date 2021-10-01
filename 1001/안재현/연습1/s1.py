@@ -9,7 +9,7 @@ def selection_sort1(arr):
     return arr
 
 
-# 선택정렬 + 재귀
+# 선택정렬 + 재귀?
 def selection_sort2(arr):
     for i in range(len(arr) - 1):
         if arr[i] > arr[i + 1]:

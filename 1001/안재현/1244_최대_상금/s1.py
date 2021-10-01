@@ -1,3 +1,4 @@
+# 오류있음
 import sys
 sys.stdin = open('input.txt')
 

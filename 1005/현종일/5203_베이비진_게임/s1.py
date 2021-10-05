@@ -1,6 +1,17 @@
 import sys
 sys.stdin = open("sample_input.txt")
 
+def check(p):
+    for j in range(10):
+        if p[j] == 3:
+            return True
+        if j < 8:
+            if p[j] and p[j + 1] and p[j + 2]:
+                return True
+    return False
+
+
+
 for tc in range(1, int(input())+1):
     cards = (list(map(int, input().split())))
 
@@ -12,27 +23,13 @@ for tc in range(1, int(input())+1):
         p1[cards[i*2]] += 1
         p2[cards[i * 2 + 1]] += 1
 
-        if winner:
+        if check(p1):
+            winner = 1
             break
 
-        for j in range(10):
-            if p1[j] == 3:
-                winner = 1
-                break
-            if j < 8:
-                if p1[j] and p1[j+1] and p1[j+2]:
-                    winner = 1
-                    break
-
-        if not winner:
-            for k in range(10):
-                if p2[k] == 3:
-                    winner = 2
-                    break
-                if k < 8:
-                    if p2[k] and p2[k + 1] and p2[k + 2]:
-                        winner = 2
-                        break
+        elif check(p2):
+            winner = 2
+            break
 
     print("#{} {}".format(tc, winner))
 

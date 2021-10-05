@@ -1,47 +1,45 @@
 import sys
 sys.stdin = open('sample_input.txt')
 
+code = {
+    '0001101':'0',
+    '0011001':'1',
+    '0010011':'2',
+    '0111101':'3',
+    '0100011':'4',
+    '0110001':'5',
+    '0101111':'6',
+    '0111011':'7',
+    '0110111':'8',
+    '0001011':'9'
+}
+
 def pw(A, pk):
-    code = {
-        '0001101':'0',
-        '0011001':'1',
-        '0010011':'2',
-        '0111101':'3',
-        '0100011':'4',
-        '0110001':'5',
-        '0101111':'6',
-        '0111011':'7',
-        '0110111':'8',
-        '0001011':'9'
-    }
-    pw = ''
-    for i in range(0, 56*pk, 7*pk):
-        temp = A[i:i+7]
+    rip = ''
+    for i in range(0, 8):
+        temp = A[i*7*pk : (i+1)*7*pk : pk]
         if temp in code:
-            pw += code[temp]
+            rip += code[temp]
         else:
             return
-    # 잘 끝나면 pw 완성
-    # pw 확인 절차
-    add = test = 0
-    for j in range(8):
-        if j % 2:
-            test += int(pw[j])
-            add += int(pw[j])
-        else:
-            test += int(pw[j]) * 3
-            add += int(pw[j])
-
-    if test % 10 == 0:
-        return pw
+    return rip
+    # 잘 끝나면 rip 완성
+    # rip 확인 절차
 
 def code_sum(codes):
-    result=0
+    total = 0
     for code in codes:
-        for i in range(8):
-            result += int(code[i])
-    return result
-
+        test = result = 0
+        for j in range(8):
+            if j%2:
+                test += int(code[j])
+                result += int(code[j])
+            else:
+                test += int(code[j])*3
+                result += int(code[j])
+        if test%10 ==0:
+            total += result
+    return total
 
 T = int(input())
 for tc in range(1, T+1):
@@ -52,21 +50,23 @@ for tc in range(1, T+1):
     li = [input().strip('0') for _ in range(N)]
     for n in range(N):
         if li[n]:          # 빈 list가 아닐때
-            temp = ''
             for i in range(len(li[n])):
-                temp = bin(int(li[n],16))[2::].strip('0')
-                lines.add(temp)
+                lines.add(bin(int(li[n],16))[2::].strip('0'))
+    # print(*lines,sep='\n')
 
     for line in lines:
         pk = 1
         max_pk = len(line)//56 + 1
         while pk <= max_pk:
-            hubo = line.zfill(56*pk)
+            line = line.zfill(56*pk)
+            hubo = line[-56*pk:]
+
             if pw(hubo,pk):
                 codes.add(pw(hubo,pk))
-            pk+=1
+                line = line[:-56*pk].rstrip('0')
+                pk = 1
+            else:
+                pk += 1
 
     end = code_sum(codes)
     print('#{} {}'.format(tc,end))
-
-# 6번까지만 맞....ㅎㅎ...

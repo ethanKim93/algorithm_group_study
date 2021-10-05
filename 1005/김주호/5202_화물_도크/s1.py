@@ -2,7 +2,7 @@ for case in range(int(input())):
     N = int(input())
     plan = [list(map(int, input().split())) for _ in range(N)]
 
-    plan.sort(key=lambda p: (p[1], p[0]))
+    plan.sort(key=lambda p: p[1])
 
     total = 0
     time = 0

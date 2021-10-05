@@ -1,18 +1,34 @@
-# Runtime Error 코드
-# 가지치기 필요!!
+# pass 코드
 
 import sys
 sys.stdin = open('sample_input.txt')
 
 
+def energy(x):
+    global ans, N
+    e = 0
+    for j in range(len(x)-1):
+        e += board[x[j]][x[j+1]]
+
+    if len(x) == N:
+        e += board[x[N-1]][x[0]]
+        if e < ans:
+            ans = e
+    return e
+
+
 def perm(N):
+    global ans
     arr = list(range(1, N+1))
-    used = [0]*(N)
-    return_array = []
+    used = [0]*N
+
 
     def generate(pick, used):
         if len(pick) == N:
-            return_array.append(pick[:])
+            energy(pick[:])
+            return
+
+        elif energy(pick) > ans:
             return
 
         for i in range(N):
@@ -25,21 +41,13 @@ def perm(N):
                 pick.pop()
 
     generate([], used)
-    return return_array
 
 
 T = int(input())
 for tc in range(1, T+1):
     N = int(input())
     board = [[0]*(N+1)] + [[0] + list(map(int, input().split())) for _ in range(N)]
+    ans = 999999999
     x = perm(N)
-    ans = 999999999999
-    for i in range(len(x)):
-        e = 0
-        for j in range(N-1):
-            e += board[x[i][j]][x[i][j+1]]
-        e += board[x[i][N-1]][x[i][0]]
-        if e < ans:
-            ans = e
 
     print('#{} {}'.format(tc, ans))

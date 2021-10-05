@@ -1,3 +1,5 @@
+# pass 코드
+
 import sys
 sys.stdin = open('sample_input.txt')
 

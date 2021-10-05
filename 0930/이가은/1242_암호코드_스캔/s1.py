@@ -36,6 +36,8 @@ def certification(data):
 
 
 def find_pw(arr):
+    global result_pw
+
     codes = {
         (3, 2, 1, 1): 0,
         (2, 2, 2, 1): 1,
@@ -49,26 +51,36 @@ def find_pw(arr):
         (3, 1, 1, 2): 9
     }
 
-    for m in range(4*M-1, -1,-1)
-        if arr[m]=='1':
-            a=b=c=d=0
-            while arr[m]=='1':
-                d += 1
-                m -= 1
-            while arr[m]=='0':
-                c += 1
-                m -= 1
-            while arr[m] =='1':
-                b += 1
-                m -= 1
-            min_v = min(b,c,d)
-            b //= min_v
-            c //= min_v
-            d //= min_v
-            a = 7 - b - c - d
+    for m in range(4*M-1, -1, -1):
+        tem = []
 
-            m -= a* min_v
+        for _ in range(8):
+            if arr[m] =='1':
+                b=c=d=0
+                while arr[m] == '1':
+                    d += 1
+                    m -= 1
+                while arr[m] == '0':
+                    c += 1
+                    m -= 1
+                while arr[m] == '1':
+                    b += 1
+                    m -= 1
 
+                min_v = min(b, c, d)
+                b //= min_v
+                c //= min_v
+                d //= min_v
+                a = 7 - b - c - d
+
+                m -= a * min_v
+                tem.append(codes[(a,b,c,d)])
+
+            else:
+                m -= 1
+        print(tem)
+        # if certification(tem) and tem not in result_pw:
+        #         #     result_pw.append(tem)
 
 
 T = int(input())
@@ -78,6 +90,7 @@ for tc in range(1, T+1):
 
     li = [input() for _ in range(N)]
 
+    result_pw = []
     for i in range(N):
         password = ''
         if li[i] == [0]*M:
@@ -85,5 +98,5 @@ for tc in range(1, T+1):
         else:
             for j in range(M-1,-1,-1):
                 password += change_bin(li[i][j])
-            find_pw(password)
-
+        find_pw(password)
+    # print(result_pw)

@@ -40,6 +40,7 @@ for tc in range(1, int(input()) + 1):
         if not len(temp): continue                      # 0으로만 이뤄진 행은 저장하지않는다
         temp = bin(int(temp, 16))[2:].rstrip('0')       # 2진수 변환 후 오른쪽 0 제거(오른쪽 끝은 항상 1)
         lines.add(temp)                                 # 정리된 암호코드를 저장
+        de=-1
     for line in lines:
         scale = 1                           # 검사할 스케일(크기)
         max_scale = len(line)//56 +1        # 스케일의 최대크기
@@ -63,3 +64,62 @@ for tc in range(1, int(input()) + 1):
             answer += sum(list(map(int, code)))
 
     print('#{} {}'.format(tc, answer))
+
+
+
+
+
+# amho = {
+#     '0001101': 0,
+#     '0011001': 1,
+#     '0010011': 2,
+#     '0111101': 3,
+#     '0100011': 4,
+#     '0110001': 5,
+#     '0101111': 6,
+#     '0111011': 7,
+#     '0110111': 8,
+#     '0001011': 9
+# }
+# def amho_avail(data, scale):
+#     data = data[ : : scale]
+#     ret = []
+    
+#     # 7개씩 끊어서 체크하기 
+#     # 반복문 진행하면서 만약에 암호체크가안되면 return False 
+#     # 암호체크되면 ret 에 넣기 
+    
+#     return tuple(ret)
+
+# for tc in range(1, int(input()) + 1):
+#     N, M = map(int, input().strip().split())
+#     lines = set()       # 입력받은 값을 정리해 저장할 set(중복제거)
+#     codes = set()       # 해독한 코드를 저장할 set(중복제거)
+#     answer = 0          # 정답저장할 변수
+
+#     for _ in range(N):
+#         temp = input().strip().strip('0')               # 양쪽에 붙어있는 0 제거
+#         if not len(temp): continue                      # 0으로만 이뤄진 행은 저장하지않는다
+#         temp = bin(int(temp, 16))[2:].rstrip('0')       # 2진수 변환 후 오른쪽 0 제거(오른쪽 끝은 항상 1)
+#         lines.add(temp)                                 # 정리된 암호코드를 저장
+
+#     for line in lines:
+#         scale = 1
+#         while line :
+#             line = line.zfill(56 * scale)               # '11112345'.zfill(10) > '0011112345'[-5:] > '12345'
+
+#             hubo = line[-56*scale : ]                   # 암호후보를 slicing : 56칸*scale만
+#             result = amho_avail(hubo,scale)             # 암호후보를 암호코드가 될수 있는지 없는지 판단.
+
+#             if result != 0 :
+#                 # ret <- 생성된 코드를 return 받아오면 된다
+#                 # set() 에다가 추가해주기  >> 중복제거
+#                 codes.add()
+#                 line = line[:-56 * scale].rstrip('0') 
+#                 scale = 1
+#             else :
+#                 scale += 1
+
+#         codes//
+#         for code in codes: # 우리가 암호 해독해온 코드들 (set)
+#             ~~~~

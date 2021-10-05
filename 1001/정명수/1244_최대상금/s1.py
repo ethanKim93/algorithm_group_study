@@ -11,7 +11,7 @@ def change(N,r):
     global max_num
     if r == counter:
         number1 = change_num(N)
-        if max_num < number1:
+        if max_num < number1:                      
             max_num = number1
         return
     if r >= len(N)-2:
@@ -24,18 +24,17 @@ def change(N,r):
                     N[i], N[j] = N[j], N[i] # N = 213  321   132
                     change(N,r+1)
                     N[i], N[j] = N[j], N[i]  # N = 123  123   123
-                if max(N[i:]) == N[i]:
+                if max(N[i:]) == N[i]:                  
                     if len(N)!=len(set(N)):
                         change(N,r+1)
                     N[len(N) - 1], N[len(N) - 2] = N[len(N) - 2], N[len(N) - 1]
                     change(N, r + 1)
                     N[len(N) - 1], N[len(N) - 2] = N[len(N) - 2], N[len(N) - 1]
-
 T = int(input())
 for tc in range(1,T+1):
     num, counter = input().split()
     max_num = 0
-    num = list(num)
+    num = list(num)                             
     counter = int(counter)
     if len(num) == 2:
         if counter%2:
@@ -45,4 +44,4 @@ for tc in range(1,T+1):
             max_num = change_num(num)
     else:
         change(num, 0)
-    print('#{} {}'.format(tc,max_num))
+    print('#{} {}'.format(tc,max_num)) 

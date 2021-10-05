@@ -1,4 +1,4 @@
-import sys
+import sys             ###### 실패! 당장 가장 큰 수를 만드는 알고리즘이라서 실패입니다.
 sys.stdin = open('input.txt')
 def change_num(N):
     number = 0

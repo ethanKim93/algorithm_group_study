@@ -1,3 +1,6 @@
+# RunTime Error 코드
+# pop 은 느리다!!!
+
 import sys
 sys.stdin = open('sample_input.txt')
 

@@ -1,0 +1,21 @@
+# 박윤지
+T = int(input())
+
+for tc in range(1, T+1):
+    N, M = map(int, input().split())
+    container = list(map(int, input().split()))  # 화물의 무게
+    truck = list(map(int, input().split()))  # 트럭의 용량
+    # 리스트 정렬 없이 트럭 용량 앞에서부터 순회하면서
+    # 용량보다 작거나 같은 것중 가장 큰 것 선택해서 더하기
+    ans = 0
+    for i in truck:
+        maxV = 0
+        for j in container:
+            if i >= j and maxV < j:
+                maxV = j
+        if maxV == 0:
+            pass
+        else:
+            ans += maxV
+            container.remove(maxV)
+    print('#{} {}'.format(tc, ans))

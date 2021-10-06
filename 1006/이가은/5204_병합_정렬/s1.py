@@ -1,3 +1,5 @@
+## 시간 초과
+
 import sys
 sys.stdin = open('sample_input.txt')
 

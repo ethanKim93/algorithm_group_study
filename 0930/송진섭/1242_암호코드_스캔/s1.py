@@ -4,7 +4,7 @@ sys.stdin = open('sample_input.txt')
 code = [
     [1, 1, 2], [1, 2, 2],
     [2, 2, 1], [1, 1, 4],
-    [2, 3, 2], [1, 3, 2],
+    [2, 3, 1], [1, 3, 2],
     [4, 1, 1], [2, 1, 3],
     [3, 1, 2], [2, 1, 1]
     ]
@@ -50,35 +50,37 @@ T = int(input())
 for tc in range(1, T+1):
     N, M = map(int, input().split())
     code_problem = [list(input().split()) for _ in range(N)]
-
+    flag = False
     for i in range(N):                                         # 행 탐색
         code_binary = hex_to_bin(code_problem[i][0])
-
+        if flag:
+            break
         code_binary_reverse = code_binary[::-1]
         for j in range(len(code_binary_reverse)):
             if code_binary_reverse[j] == '1':
                 start_point = j
-                break
-            elif j > len(code_binary_reverse)/8:
+                code_binary_reverse = code_binary_reverse[start_point::]
+                code_ratio = []
+                cnt = 0
+                for j in range(1, len(code_binary_reverse)):
+                    if code_binary_reverse[j] == code_binary_reverse[j - 1]:
+                        cnt += 1
+                    else:
+                        code_ratio.append(cnt + 1)
+                        cnt = 0
+                code_ratio = [code_ratio[k:k + 3] for k in range(0, len(code_ratio), 4)]
+                res = []
+                for l in range(len(code_ratio)):
+                    res.append(code.index(calculation_ratio(code_ratio[l][0], code_ratio[l][1], code_ratio[l][2])))
+                odd_num = res[7] + res[5] + res[3] + res[1]
+                even_num = res[6] + res[4] + res[2] + res[0]
+                if not ((odd_num * 3) + even_num) % 10:
+                    print('#{} {}'.format(tc, odd_num + even_num))
+                    flag = True
+                    break
+            elif j > len(code_binary_reverse)/6:
                 start_point = -1
                 break
         if start_point == -1:
             continue
 
-        code_ratio = []
-        cnt = 0
-        for j in range(1, len(code_binary)):
-            if code_binary_reverse[j] == code_binary_reverse[j-1]:
-                cnt += 1
-            else:
-                code_ratio.append(cnt+1)
-                cnt = 0
-        code_ratio = [code_ratio[k:k + 3] for k in range(0, len(code_ratio), 4)]
-        res = []
-        for l in range(len(code_ratio)):
-            res.append(code.index(calculation_ratio(code_ratio[l][0], code_ratio[l][1], code_ratio[l][2])))
-        odd_num = res[7]+res[5]+res[3]+res[1]
-        even_num = res[6]+res[4]+res[2]+res[0]
-        if not ((odd_num*3)+even_num) % 10:
-            print('#{} {}'.format(tc, odd_num+even_num))
-            break

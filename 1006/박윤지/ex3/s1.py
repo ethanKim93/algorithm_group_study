@@ -27,7 +27,31 @@ for l in range(1, len(root)):
         rootIdx = l
         break
 
+
 # 전위 순회
 def preorder_traverse(node):
-    if node is
+    if node != 0:
+        print(node)
+        preorder_traverse(left[node])
+        preorder_traverse(right[node])
+
+# 중위 순회
+def inorder_traverse(node):
+    if node != 0:
+        inorder_traverse(left[node])
+        print(node)
+        inorder_traverse(right[node])
+
+# 후위 순회
+def postorder_traverse(node):
+    if node != 0:
+        postorder_traverse(left[node])
+        postorder_traverse(right[node])
+        print(node)
+
+
+# preorder_traverse(rootIdx)
+# inorder_traverse(rootIdx)
+postorder_traverse(rootIdx)
+
 

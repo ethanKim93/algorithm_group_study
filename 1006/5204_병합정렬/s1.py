@@ -27,7 +27,7 @@ def merge(arr):
             b += 1
 
     merged += f_arr[f:]
-    merged += b_arr[b:]ff
+    merged += b_arr[b:]
 
     return merged
 

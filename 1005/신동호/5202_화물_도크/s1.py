@@ -6,9 +6,9 @@ T = int(input())
 for tc in range(1, T+1):
     N = int(input())
     time = [[] for _ in range(N)]
-    for i in range(N):
-        time[i] = list(map(int, input().split()))
+    time = [list(map(int, input().split())) for _ in range(N)]
     time.sort(key=lambda x:-x[1])
+    print(time)
     end = -1
     ans = 0
     while time:

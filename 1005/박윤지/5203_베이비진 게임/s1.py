@@ -1,4 +1,4 @@
-# algorithm/1001/juan/ex2/s1.py
+# algorithm/1001/juan/ex2/s2.py
 # 위에 베이비진 풀이 1. 기본 완전탐색  2. 재귀로 순열만들고 찾기
 # 2번은 그날 했어서 1번으로 풀기
 

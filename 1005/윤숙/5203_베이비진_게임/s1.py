@@ -21,9 +21,6 @@ def is_babyjin(p):
 def permutation(cnt, p, arr):
     global visited,maxv
     if cnt == n:
-        cac=is_babyjin(arr)
-        if cac>maxv:
-            maxv=cac
         return
     else:
         for j in range(n):
@@ -35,6 +32,10 @@ def permutation(cnt, p, arr):
             visited[j] = 0
             arr[cnt] = 0
 
+    global maxv
+    if maxv<is_babyjin(arr):
+        maxv=is_babyjin(arr)
+        print(maxv)
 
 T = int(input())
 for tc in range(1, T + 1):
@@ -52,4 +53,5 @@ for tc in range(1, T + 1):
     flag = 0
     maxv=0
     permutation(cnt, p1, p1_arr)
+    maxv=0
     permutation(cnt, p2, p2_arr)

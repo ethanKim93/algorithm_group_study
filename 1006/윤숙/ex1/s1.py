@@ -1,6 +1,5 @@
 # 배열의 데이터를 퀵 정렬하는 함수를 작성하고 테스트해보세요
 
-
 # Hoare-Partition 알고리즘
 
 def quicksort(l, r):
@@ -15,6 +14,7 @@ def partition(l, r):
     p = arr[l]
     i = l
     j = r
+
     while i <= j:
         while i <= j and arr[i] <= p:
             i += 1

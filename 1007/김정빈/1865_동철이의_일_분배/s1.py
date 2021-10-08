@@ -1,5 +1,6 @@
 import sys
 sys.stdin = open("input.txt")
+#1865_동철이의_일_분배
 #4366_정식이의_은행업무
 def dfs(n, tot):
     global res

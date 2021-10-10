@@ -1,32 +1,110 @@
 import sys
 sys.stdin = open('input.txt', 'r')
 
-
-def max_percent(idx, total):
-    global result
-
-    if total <= result:
-        return
-
-    if idx == N and total > result:
-        result = total
-        return
-
-    for i in range(N):
-        if not visited[i]:
-            visited[i] = 1
-            max_percent(idx + 1, total * arr[i][idx] * 0.01)
-            visited[i] = 0
-
-
 T = int(input())
 for tc in range(1, T + 1):
-    N = int(input())
-    arr = [list(map(int, input().split())) for _ in range(N)]
+    money = int(input())
 
-    visited = [0] * N
-    result = 0
+    result = []
+    i = 0
+    cnt = 0
+    while cnt < 8:
+        if i == 0:
+            if int(money) // 50000 != 0:
+                a = int(money) // 50000
+                result.append(a)
+                money = int(money) - (50000 * a)
+                i += 1
+                cnt += 1
+                a = 0
+            else:
+                result.append(int(money) // 50000)
+                i += 1
+                cnt += 1
+        if i == 1:
+            if int(money) // 10000 != 0:
+                a = int(money) // 10000
+                result.append(a)
+                money = int(money) - (10000 * a)
+                i += 1
+                cnt += 1
+                a = 0
+            else:
+                result.append(int(money) // 10000)
+                i += 1
+                cnt += 1
+        if i == 2:
+            if int(money) // 5000 != 0:
+                a = int(money) // 5000
+                result.append(a)
+                money = int(money) - (5000 * a)
+                i += 1
+                cnt += 1
+                a = 0
+            else:
+                result.append(int(money) // 5000)
+                i += 1
+                cnt += 1
+        if i == 3:
+            if int(money) // 1000 != 0:
+                a = int(money) // 1000
+                result.append(a)
+                money = int(money) - (1000 * a)
+                i += 1
+                cnt += 1
+                a = 0
+            else:
+                result.append(int(money) // 1000)
+                i += 1
+                cnt += 1
+        if i == 4:
+            if int(money) // 500 != 0:
+                a = int(money) // 500
+                result.append(a)
+                money = int(money) - (500 * a)
+                i += 1
+                cnt += 1
+                a = 0
+            else:
+                result.append(int(money) // 500)
+                i += 1
+                cnt += 1
+        if i == 5:
+            if int(money) // 100 != 0:
+                a = int(money) // 100
+                result.append(a)
+                money = int(money) - (100 * a)
+                i += 1
+                cnt += 1
+                a = 0
+            else:
+                result.append(int(money) // 100)
+                i += 1
+                cnt += 1
+        if i == 6:
+            if int(money) // 50 != 0:
+                a = int(money) // 50
+                result.append(a)
+                money = int(money) - (50 * a)
+                i += 1
+                cnt += 1
+                a = 0
+            else:
+                result.append(int(money) // 50)
+                i += 1
+                cnt += 1
+        if i == 7:
+            if int(money) // 10 != 0:
+                a = int(money) // 10
+                result.append(a)
+                money = int(money) - (10 * a)
+                i += 1
+                cnt += 1
+                a = 0
+            else:
+                result.append(int(money) // 10)
+                i += 1
+                cnt += 1
 
-    max_percent(0, 1)
-
-    print('#{} {:6f}'.format(tc, result * 100))
+    print('#{}'.format(tc))
+    print(*result)

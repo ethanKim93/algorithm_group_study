@@ -25,3 +25,14 @@ for tc in range(1, int(input())+1):
     search(0)                        # 첫번째 정류장부터 탐색
     print('#{} {}'.format(tc, min_change-1))     # 첫번째 충전은 교체횟수에 포함 안되기 때문에 1을 빼면 최소값
 
+
+# DP
+# for test in range(1, int(input()) + 1):
+#     N, *battery = map(int, input().split())
+#     dp = [float('inf')] * N
+#     dp[N - 1] = 0
+#     for i in range(N - 1, -1, -1):
+#         for j in range(i - 1, -1, -1):
+#             if j + battery[j] >= i:
+#                 dp[j] = min(dp[j], dp[i] + 1)
+#     print('#{} {}'.format(test, dp[0]-1))

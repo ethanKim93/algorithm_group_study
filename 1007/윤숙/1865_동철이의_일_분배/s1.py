@@ -16,6 +16,8 @@ def percentage(emp,total):
         mission[j]=1
         percentage(emp+1,total*arr[emp][j])
         mission[j]=0
+
+
 def f(x):
     return float(x)/100
 

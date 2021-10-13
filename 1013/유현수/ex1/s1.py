@@ -13,7 +13,8 @@ def DFS(s):
             visited[v] = 1
             print(v)
             for w in adj_list[v]:
-                stack.append(w)
+                if not visited[w]:
+                    stack.append(w)
 
 
 V, E = map(int, input().split())

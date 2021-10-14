@@ -19,7 +19,6 @@ def dijkstra():
                 if w+next_w < dist[next_v]:
                     dist[next_v] = w+next_w
                     pq.append((next_v,dist[next_v]))
-    print(dist)
     return dist[N]
 
 T = int(input())

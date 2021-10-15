@@ -34,7 +34,7 @@ for tc in range(1,T+1):
     print('#{} {}'.format(tc,res))
 
 
-# 다익스트라 실패..
+# 다익스트라 실패.. -> dist를 2차원으로 확장하고, 높이가 최소로 갱신되면 visited 체크하는 방식으로 변경하면 가능하다
 # def dijkstra(s):
 #     global INF
 #     visited = [[0] * (N+1) for _ in range(N+1)]

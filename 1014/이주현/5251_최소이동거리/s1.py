@@ -1,31 +1,24 @@
-# 수업 못 들은 게 크네요...주말에 보충하겠습니다. ㅠㅠ
+import sys
+sys.stdin = open('sample_input.txt')
 
 T = int(input())
-for tc in range(1, T+1):
-    V, E = map(int, input().split())
-    adj = {i: [] for i in range(V+1)}
-    for i in range(E):
-        s, e, c = map(int, input().split())
-        adj[s].append([e, c])
 
-    INF = float('inf')
-    dist = [INF] * (V+1)
-    selected = [False] * (V+1)
+for tc in range(1, 1 + T):
+    N, E = map(int, input().split())
+    edges = [list(map(int, input().split())) for _ in range(E)]
 
-    dist[0] = 0
-    cnt = 0
-    while cnt < (V):
-        min = INF
-        u = -1
-        for i in range(V+1):
-            if not selected[i] and dist[i] < min:
-                min = dist[i]
-                u = i
-        # 결정
-        selected[u] = True
-        cnt += 1
-        # 간선완화
-        for w, cost in adj[u]:  # 도착정점, 가중치
-            if dist[w] > dist[u] + cost:
-                dist[w] = dist[u] + cost
-    print("#{} {}".format(tc, dist[V]))
+    adj = [[0] * (N + 1) for _ in range(N + 1)]
+    for edge in edges:
+        adj[edge[0]][edge[1]] = adj[edge[1]][edge[0]] = edge[2]
+
+    visited = [False] * (N + 1)
+    weights = [999] * (N + 1)
+    weights[0] = 0
+
+    for i in range(N + 1):
+        for j in range(N + 1):
+            if adj[i][j] != 0 and weights[j] > adj[i][j] + weights[i]:
+                weights[j] = adj[i][j] + weights[i]
+
+    print("#{} {}".format(tc, weights[-1]))
+
